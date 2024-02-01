@@ -8,7 +8,8 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-.input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
