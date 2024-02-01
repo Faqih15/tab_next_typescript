@@ -7,8 +7,16 @@ import Image from 'next/image';
 // import { useRouter } from "next/navigation";
 
 export default function AsideAndTop({children}: any) {
-  const [show, setShow] = useState<boolean>(false);
-
+  const [isShow, setIsShow] = useState<boolean>(false);
+	const showMenu = () => {
+    if (isShow === false) {
+      console.log(isShow, 'isShow status');
+      setIsShow(true)
+    } else {
+      console.log("else isShow");
+      setIsShow(false)
+    }
+  }
 	return (
     <>
 			<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
@@ -44,7 +52,7 @@ export default function AsideAndTop({children}: any) {
 							</a>
 						</li>
 						<li>
-							<button type="button" className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+							<button type="button" onClick={showMenu} className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
 								<svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
 									<path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
 								</svg>
@@ -53,7 +61,7 @@ export default function AsideAndTop({children}: any) {
 									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 								</svg>
 							</button>
-							<ul id="dropdown-example" className="hidden py-2 space-y-2">
+							<ul id="dropdown-example" className={(isShow === false ? "hidden" : "block  py-2 space-y-2")}>
 								<li>
 									<a href="#" className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
 								</li>
@@ -99,7 +107,6 @@ export default function AsideAndTop({children}: any) {
 								<span className="flex-1 ms-3 whitespace-nowrap">Products</span>
 							</a>
 						</li>
-						
 						<li>
 							<a href="#" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
 								<svg className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

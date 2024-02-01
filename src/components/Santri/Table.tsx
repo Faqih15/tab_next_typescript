@@ -91,9 +91,6 @@ export default function SantriTable() {
       id_card: 3301033010,
     },
   ];
-  const mapData1 = {
-    
-  }
     return (
       <section className="">
         <div className="relative overflow-x-auto">

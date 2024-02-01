@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
+// module.exports = {
+//   basePath: './src',
+// }
+
 export default nextConfig;
 
 // @ts-check
