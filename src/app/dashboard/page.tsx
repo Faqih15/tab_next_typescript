@@ -1,9 +1,14 @@
-// import FormLogin from "./components/Login/Form.tsx";
+import SantriTable from './../../components/Santri/Table';
+import AsideAndTop from '../../components/Layouts/Aside';
 
-export default function AuthLoginPage() {
+export default function Dashboard() {
   return(
     <div>
-      {/* <FormLogin /> */}
+      {/* <LayoutDashboard>
+      </LayoutDashboard> */}
+      <AsideAndTop>
+        <SantriTable />
+      </AsideAndTop>
     </div>
   )
 }
