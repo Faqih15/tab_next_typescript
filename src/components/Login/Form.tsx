@@ -1,7 +1,6 @@
-// import Image from "next/image";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 'use client'
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function FormLogin(){
@@ -15,7 +14,7 @@ export default function FormLogin(){
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img className="w-10 h-10 mr-3" src="https://i.imghippo.com/files/yV7re1706583976.png" alt="logo" />
+          {/* <Image className="w-10 h-10 mr-3" src="https://i.imghippo.com/files/yV7re1706583976.png" alt="logo" /> */}
           Admin Tabungan
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

@@ -21,10 +21,10 @@ export default function NewSantri() {
       </button>
       {/* <!-- Main modal --> */}
       <div className={(isOpen === false ? "hidden" : "block")}>
-        <div id="default-modal" aria-hidden="true" className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full" >
+        <div id="default-modal" aria-hidden="true" className="overflow-y-auto overflow-x-hidden fixed inset-x-0 top-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full" >
           <div className="relative p-4 w-full max-w-2xl max-h-full">
             {/* <!-- Modal content --> */}
-            <div className="relative bg-white rounded-lg shadow">
+            <div className="relative bg-white rounded-lg border border-blue-400 shadow">
               {/* <!-- Modal header --> */}
               <form>
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
@@ -42,35 +42,35 @@ export default function NewSantri() {
                 <div className="max-w-sm mx-auto py-5">
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">Your Name</label>
-                    <input type="text" id="username" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama" required />
+                    <input type="text" id="username" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama" required />
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">NIM</label>
-                    <input type="number" id="nim" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nim" required />
+                    <input type="number" id="nim" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nim" required />
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">Kelas</label>
-                    <input type="text" id="class" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="kelas" />
+                    <input type="text" id="class" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="kelas" />
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">No Tabungan</label>
-                    <input type="number" id="notab" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="no tabungan" required />
+                    <input type="number" id="notab" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="no tabungan" required />
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">Nama Orangtua</label>
-                    <input type="text" id="ortu" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama orangtua" required />
+                    <input type="text" id="ortu" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama orangtua" required />
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">Alamat</label>
-                    <input type="text" id="address" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="alamat" required />
+                    <input type="text" id="address" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="alamat" required />
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">ID Card</label>
-                    <input type="number" id="idcard" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="id card" />
+                    <input type="number" id="idcard" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="id card" />
                   </div>
                   <div className="flex items-start mb-5">
                     <div className="flex items-center h-5">
-                      <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
+                      <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-blue-400 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
                     </div>
                     <label className="ms-2 text-sm font-medium text-gray-900">I agree with the <a href="#" className="text-blue-600 hover:underline">terms and conditions</a></label>
                   </div>
