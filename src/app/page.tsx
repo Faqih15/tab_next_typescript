@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex justify-start gap-3">
-        <Link href="/auth" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium bg-tab-color-1 text-gray-900 focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">auth</Link>
+        <Link href="/auth" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium bg-gray-50 text-gray-900 focus:outline-none rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">auth</Link>
         <Link href="/dashboard" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">dashboard</Link>
       </div>
 

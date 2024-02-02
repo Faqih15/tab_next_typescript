@@ -7,6 +7,7 @@ type KeySantri = {
   id_card: number;
   saldo: number;
   id: number;
+  no_tabungan: string;
 };
 async function getSantri() {
   const res = await fetch("http://localhost:5000/santri");

@@ -7,7 +7,8 @@
       "id_kelas": 1,
       "alamat": "Mantung",
       "id_card": 3300133001,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Fatimah Azzahra",
@@ -16,7 +17,8 @@
       "id_kelas": 2,
       "alamat": "Cirebon",
       "id_card": 3300233002,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Muhammad Iqbal",
@@ -25,7 +27,8 @@
       "id_kelas": 1,
       "alamat": "Bandung",
       "id_card": 3300333003,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Syaifuddin Ahmad",
@@ -34,7 +37,8 @@
       "id_kelas": 3,
       "alamat": "Jakarta",
       "id_card": 3300433004,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Rizky Pratama",
@@ -43,7 +47,8 @@
       "id_kelas": 2,
       "alamat": "Yogyakarta",
       "id_card": 3300533005,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Siti Rahma",
@@ -52,7 +57,8 @@
       "id_kelas": 3,
       "alamat": "Surabaya",
       "id_card": 3300633006,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Fachrul Razi",
@@ -61,7 +67,8 @@
       "id_kelas": 1,
       "alamat": "Malang",
       "id_card": 3300733007,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Dian Fitriani",
@@ -70,7 +77,8 @@
       "id_kelas": 2,
       "alamat": "Semarang",
       "id_card": 3300833008,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Ahmad Fauzan",
@@ -79,7 +87,8 @@
       "id_kelas": 3,
       "alamat": "Denpasar",
       "id_card": 3300933009,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     },
     {
       "nama": "Json Rina Fitria",
@@ -88,7 +97,24 @@
       "id_kelas": 1,
       "alamat": "Palembang",
       "id_card": 3301033010,
-      "saldo": 0
+      "saldo": 0,
+      "no_tabungan": "ST-02-110-03"
     }
+  ],
+  "listClass" : [
+    { "nama": "1 Tsanawiyah", "code": 1 },
+    { "nama": "2 Tsanawiyah", "code": 2 },
+    { "nama": "3 Tsanawiyah", "code": 3 },
+    { "nama": "1 Aliyah", "code": 4 },
+    { "nama": "2 Aliyah", "code": 5 },
+    { "nama": "3 Aliyah", "code": 6 },
+    { "nama": "1 Muallimin", "code": 7 },
+    { "nama": "2 Mualiimin", "code": 8 },
+    { "nama": "3 Mualiimin", "code": 9 },
+    { "nama": "1 Muallimat", "code": 10 },
+    { "nama": "2 Muallimat", "code": 11 },
+    { "nama": "3 Muallimat", "code": 12 },
+    { "nama": "Istisyarah", "code": 13 },
+    { "nama": "Munaqasyah", "code": 14 }
   ]
 }

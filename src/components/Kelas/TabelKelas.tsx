@@ -1,31 +1,25 @@
-export default function TabelKelas() {
+type KeyClass = {
+  nama: string;
+  code: number;
+};
+async function getClass() {
+  const res = await fetch("http://localhost:5000/listClass");
+  return res.json();
+}
+
+export default async function TabelKelas() {
   const headClass = [
     {
       nama: "nama",
       code: "kode kelas",
     }
   ]
-  const listClass = [
-    { nama: "1 Tsanawiyah", code: 1 },
-    { nama: "2 Tsanawiyah", code: 1 },
-    { nama: "3 Tsanawiyah", code: 1 },
-    { nama: "1 Aliyah", code: 1 },
-    { nama: "2 Aliyah", code: 1 },
-    { nama: "3 Aliyah", code: 1 },
-    { nama: "1 Muallimin", code: 1 },
-    { nama: "2 Mualiimin", code: 1 },
-    { nama: "3 Mualiimin", code: 1 },
-    { nama: "1 Muallimat", code: 1 },
-    { nama: "2 Muallimat", code: 1 },
-    { nama: "3 Muallimat", code: 1 },
-    { nama: "Istisyarah", code: 1 },
-    { nama: "Munaqasyah", code: 1 }
-  ];
+  const listClass = await getClass();
     return (
       <section className="">
         <div className="relative overflow-x-auto">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-50">
                 {headClass.map((itemHead, index) => { 
                   return  ( 
                     <tr key={index} className="">
@@ -37,8 +31,8 @@ export default function TabelKelas() {
                       </td>
                     </tr> ) } ) }
             </thead>
-            <tbody>
-                {listClass.map((itemClass, index) => {
+            <tbody className="text-base capitalize">
+                {listClass.map((itemClass: KeyClass, index: number) => {
                   return (
                     <tr key={index} className="">
                       <td className="px-6 py-2">

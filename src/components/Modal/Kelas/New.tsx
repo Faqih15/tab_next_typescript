@@ -16,7 +16,7 @@ export default function NewClass() {
   return (
     <section className="my-5">
       {/* <!-- Modal toggle --> */}
-      <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button" onClick={showmodal}>
+      <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" type="button" onClick={showmodal}>
         New Class
       </button>
       {/* <!-- Main modal --> */}
@@ -41,14 +41,14 @@ export default function NewClass() {
                 {/* <!-- Modal body --> */}
                 <div className="max-w-sm mx-auto py-5">
                   <div className="mb-4">
-                    <label className="block mb-1 text-sm font-medium text-gray-900">New Class</label>
+                    <label className="block text-base font-medium text-gray-900">New Class</label>
                     <input type="text" id="username" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama" required />
                   </div>
                   <div className="mb-4">
-                    <label className="block mb-1 text-sm font-medium text-gray-900">Code</label>
+                    <label className="block text-base font-medium text-gray-900">Code</label>
                     <input type="number" id="code" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nim" required />
                   </div>
-                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Register new Class</button>
+                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">Register new Class</button>
                 </div>
               </form>
               {/* <!-- Modal footer --> */}

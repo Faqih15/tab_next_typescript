@@ -6,7 +6,6 @@ export default function Dashboard() {
   return(
     <div>
       <AsideAndTop>
-        <h1 className='text-red-500'>/kelas/page</h1>
         <NewClass /> 
         {/* show modal form new class */}
         <TabelKelas />
