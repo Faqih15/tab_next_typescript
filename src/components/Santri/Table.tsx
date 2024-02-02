@@ -1,3 +1,7 @@
+"use client"
+
+import { useEffect, useState } from "react";
+
 type KeySantri = {
   nama: string;
   nim: number;
@@ -9,11 +13,11 @@ type KeySantri = {
   id: number;
   no_tabungan: string;
 };
-async function getSantri() {
-  const res = await fetch("http://localhost:5000/santri");
-  return res.json();
-}
 
+// async function getSantri() {
+//   const res = await fetch("http://localhost:5000/santri");
+//   return res.json();
+// }
 export default async function SantriTable() {
   const headTable = [
     {
@@ -119,7 +123,9 @@ export default async function SantriTable() {
       saldo: 0,
     },
   ];
-  const testSantri = await getSantri();
+
+  // const testSantri = await getSantri();
+
   return (
     <section className="">
       <div className="relative overflow-x-auto">
@@ -143,7 +149,7 @@ export default async function SantriTable() {
             })}
           </thead>
           <tbody className="text-base capitalize">
-            {testSantri.map((santri: KeySantri, index: number) => {
+            {testDataSantri.map((santri, index) => {
               return (
                 <tr key={index} className="">
                   {/* key must change to id data */}
