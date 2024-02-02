@@ -14,6 +14,7 @@ import {
 } from "react-icons/md";
 import { VscSymbolClass } from "react-icons/vsc";
 import { LuUsers } from "react-icons/lu";
+import { AiOutlineTransaction } from "react-icons/ai";
 
 export default function AsideAndTop({ children }: any) {
   const [isShow, setIsShow] = useState<boolean>(false);
@@ -37,7 +38,7 @@ export default function AsideAndTop({ children }: any) {
       >
         <span className="sr-only">Open sidebar</span>
         <svg
-          className="w-6 h-6"
+          className="w-8 h-8"
           aria-hidden="true"
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -53,7 +54,7 @@ export default function AsideAndTop({ children }: any) {
 
       <aside
         id="default-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        className="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
@@ -62,17 +63,17 @@ export default function AsideAndTop({ children }: any) {
               href="#"
               className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
             >
-              <span className="ms-3 text-2xl font-semibold">Dashboard</span>
+              <span className="ms-3 text-2xl font-bold">Dashboard</span>
             </a>
           </span>
-          <ul className="space-y-2 font-medium mt-8">
+          <ul className="space-y-4 font-medium mt-8">
             <li>
               <a
                 href="/dashboard"
                 className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
               >
-                <MdOutlineDashboard className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
-                <span className="ms-3  ">Dashboard</span>
+                <MdOutlineDashboard className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black" />
+                <span className="ms-3 text-lg font-semibold">Dashboard 123</span>
               </a>
             </li>
             <li>
@@ -83,8 +84,8 @@ export default function AsideAndTop({ children }: any) {
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example"
               >
-                <MdListAlt className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
-                <span className="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap  ">
+                <MdListAlt className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black" />
+                <span className="flex-1 ms-3 text-lg text-left font-semibold rtl:text-right whitespace-nowrap">
                   Data
                 </span>
                 {!isShow ? (
@@ -98,27 +99,27 @@ export default function AsideAndTop({ children }: any) {
                   <li>
                     <a
                       href="/dashboard"
-                      className="flex items-center w-full p-2 gap-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
                     >
-                      <LuUsers className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-black" />
+                      <LuUsers className="w-6 h-6 text-base text-gray-500 transition duration-75 group-hover:text-black" />
                       Santri
                     </a>
                   </li>
                   <li>
                     <a
                       href="/dashboard/kelas"
-                      className="flex items-center w-full p-2 gap-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
                     >
-                      <VscSymbolClass className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-black" />
+                      <VscSymbolClass className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
                       Kelas
                     </a>
                   </li>
                   <li>
                     <a
                       href="/dashboard/tabungan"
-                      className="flex items-center w-full p-2 gap-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
                     >
-                      <MdAttachMoney className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-black" />
+                      <MdAttachMoney className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
                       Tabungan
                     </a>
                   </li>
@@ -127,7 +128,7 @@ export default function AsideAndTop({ children }: any) {
             </li>
             {/* <li>
 							<a href="/auth" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-								<MdLogout className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black"/>
+								<MdLogout className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black"/>
 								<span className="flex-1 ms-3 whitespace-nowrap  ">Sign Out</span>
 							</a>
 						</li> */}
@@ -139,18 +140,10 @@ export default function AsideAndTop({ children }: any) {
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
               >
-                <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 18"
-                >
-                  <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Kanban</span>
-                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full">
-                  Pro
+                <AiOutlineTransaction className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black" />
+                <span className="flex-1 ms-3 text-lg font-semibold whitespace-nowrap">Payment Page</span>
+                <span className="inline-flex items-center justify-center px-2 py-1 ms-3 text-xs font-medium text-gray-100 bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 rounded-full">
+                  User
                 </span>
               </a>
             </li>
@@ -231,7 +224,7 @@ export default function AsideAndTop({ children }: any) {
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64">
+      <div className="p-4 sm:ml-72">
         <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg">
           <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="flex items-center justify-center h-24 rounded bg-gray-50">
