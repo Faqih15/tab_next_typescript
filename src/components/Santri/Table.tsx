@@ -1,8 +1,5 @@
-"use client"
 
-import { useEffect, useState } from "react";
-
-type KeySantri = {
+type KeyTabSantri = {
   nama: string;
   nim: number;
   orangtua: string;
@@ -14,10 +11,12 @@ type KeySantri = {
   no_tabungan: string;
 };
 
-// async function getSantri() {
-//   const res = await fetch("http://localhost:5000/santri");
-//   return res.json();
-// }
+async function getSantri() {
+  const res = await fetch("http://localhost:5000/santri");
+  // to get value from localhost:5000 you must run the json-server on terminal with 
+  // npm run server
+  return res.json();
+}
 export default async function SantriTable() {
   const headTable = [
     {
@@ -124,7 +123,7 @@ export default async function SantriTable() {
     },
   ];
 
-  // const testSantri = await getSantri();
+const testSantri = await getSantri();
 
   return (
     <section className="">
@@ -149,7 +148,7 @@ export default async function SantriTable() {
             })}
           </thead>
           <tbody className="text-base capitalize">
-            {testDataSantri.map((santri, index) => {
+            {testSantri.map((santri: KeyTabSantri, index: number) => {
               return (
                 <tr key={index} className="">
                   {/* key must change to id data */}

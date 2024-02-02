@@ -1,9 +1,13 @@
+
 type KeyClass = {
   nama: string;
   code: number;
 };
-async function getClass() {
-  const res = await fetch("http://localhost:5000/listClass");
+async function getKelas() {
+  const res = await fetch("http://localhost:5000/listclass");
+  console.log(res, "respon");
+  // to get value from localhost:5000 you must run the json-server on terminal with 
+  // npm run server
   return res.json();
 }
 
@@ -14,7 +18,8 @@ export default async function TabelKelas() {
       code: "kode kelas",
     }
   ]
-  const listClass = await getClass();
+  const listClass = await getKelas();
+  
     return (
       <section className="">
         <div className="relative overflow-x-auto">

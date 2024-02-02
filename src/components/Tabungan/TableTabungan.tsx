@@ -1,3 +1,4 @@
+
 type KeySantri = {
   nama: string;
   nim: number;
@@ -9,8 +10,10 @@ type KeySantri = {
   id: number;
   no_tabungan: string;
 };
-async function getSantri() {
+async function getTabSantri() {
   const res = await fetch("http://localhost:5000/santri");
+  // to get value from localhost:5000 you must run the json-server on terminal with 
+  // npm run server
   return res.json();
 }
 
@@ -39,7 +42,7 @@ export default async function TabelTab() {
     { nama: "Istisyarah", code: 1 },
     { nama: "Munaqasyah", code: 1 }
   ];
-  const testTabunganSantri = await getSantri();
+  const testTabunganSantri = await getTabSantri();
     return (
       <section className="">
         <div className="relative overflow-x-auto">
