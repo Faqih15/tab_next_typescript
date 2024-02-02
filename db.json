@@ -101,20 +101,20 @@
       "no_tabungan": "ST-02-110-03"
     }
   ],
-  "listClass" : [
-    { "nama": "1 Tsanawiyah", "code": 1 },
-    { "nama": "2 Tsanawiyah", "code": 2 },
-    { "nama": "3 Tsanawiyah", "code": 3 },
-    { "nama": "1 Aliyah", "code": 4 },
-    { "nama": "2 Aliyah", "code": 5 },
-    { "nama": "3 Aliyah", "code": 6 },
-    { "nama": "1 Muallimin", "code": 7 },
-    { "nama": "2 Mualiimin", "code": 8 },
-    { "nama": "3 Mualiimin", "code": 9 },
-    { "nama": "1 Muallimat", "code": 10 },
-    { "nama": "2 Muallimat", "code": 11 },
-    { "nama": "3 Muallimat", "code": 12 },
-    { "nama": "Istisyarah", "code": 13 },
-    { "nama": "Munaqasyah", "code": 14 }
+  "listclass" : [
+    { "nama": "Json 1 Tsanawiyah", "code": 1 },
+    { "nama": "Json 2 Tsanawiyah", "code": 2 },
+    { "nama": "Json 3 Tsanawiyah", "code": 3 },
+    { "nama": "Json 1 Aliyah", "code": 4 },
+    { "nama": "Json 2 Aliyah", "code": 5 },
+    { "nama": "Json 3 Aliyah", "code": 6 },
+    { "nama": "Json 1 Muallimin", "code": 7 },
+    { "nama": "Json 2 Mualiimin", "code": 8 },
+    { "nama": "Json 3 Mualiimin", "code": 9 },
+    { "nama": "Json 1 Muallimat", "code": 10 },
+    { "nama": "Json 2 Muallimat", "code": 11 },
+    { "nama": "Json 3 Muallimat", "code": 12 },
+    { "nama": "Json Istisyarah", "code": 13 },
+    { "nama": "Json Munaqasyah", "code": 14 }
   ]
 }
