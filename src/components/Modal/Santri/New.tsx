@@ -16,8 +16,8 @@ export default function NewSantri() {
   return (
     <section className="my-5">
       {/* <!-- Modal toggle --> */}
-      <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="block text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" type="button" onClick={showmodal}>
-        Add new Profil
+      <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="button-blue block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" type="button" onClick={showmodal}>
+        Add New Profil
       </button>
       {/* <!-- Main modal --> */}
       <div className={(isOpen === false ? "hidden" : "block")}>
