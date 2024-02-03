@@ -1,3 +1,4 @@
+import UpdateSantri from './../Modal/Santri/Update';
 
 type KeyTabSantri = {
   nama: string;
@@ -68,15 +69,16 @@ const testSantri = await getSantri();
                   <td className="px-5">{santri.id_card}</td>
                   <td className="px-5">{santri.saldo}</td>
                   <td className="px-5 flex justify-start gap-2">
-                    <button
+                    {/* <button
                       type="button"
                       className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
                     >
                       Update
-                    </button>
+                    </button> */}
+                    <UpdateSantri santri={santri} />
                     <button
                       type="button"
-                      className="button-red text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
+                      className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
                     >
                       Delete
                     </button>

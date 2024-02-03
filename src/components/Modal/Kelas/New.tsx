@@ -20,7 +20,7 @@ export default function NewClass() {
       <button
         data-modal-target="default-modal"
         data-modal-toggle="default-modal"
-        className="button-blue block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center"
+        className="bg-blue-600 hover:bg-blue-700  block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center"
         type="button"
         onClick={showmodal}>
         Add New Class
@@ -78,7 +78,7 @@ export default function NewClass() {
                   </div>
                   <button
                     type="submit"
-                    className="button-blue text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">
+                    className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">
                     Register new Class
                   </button>
                 </div>

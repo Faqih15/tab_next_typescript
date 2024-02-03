@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
-export default function NewSantri() {
+export default function UpdateSantri() {
   // const [first, setfirst] = useState<string>();
   const [isOpen, setOpen] = useState<boolean>(false);
   const showmodal = () => {
@@ -15,10 +15,18 @@ export default function NewSantri() {
     }
   }
   return (
-    <section className="my-5">
+    <section>
       {/* <!-- Modal toggle --> */}
-      <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="bg-blue-600 hover:bg-blue-700  block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" type="button" onClick={showmodal}>
+      {/* <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="bg-blue-600 hover:bg-blue-700  block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" type="button" onClick={showmodal}>
         Add New Profil
+      </button> */}
+
+      <button
+        type="button"
+        className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+        onClick={showmodal}
+      >
+        Update
       </button>
       {/* <!-- Main modal --> */}
       <div className={(isOpen === false ? "hidden" : "block")}>
@@ -30,7 +38,7 @@ export default function NewSantri() {
               <form>
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                      Add New Profil
+                      Update Profil
                   </h3>
                   <button
                     type="submit"
@@ -71,16 +79,9 @@ export default function NewSantri() {
                     <label className="block text-base font-medium text-gray-900">ID Card</label>
                     <input type="number" id="idcard" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="id card" />
                   </div>
-                  <div className="flex items-start mb-5">
-                    <div className="flex items-center h-5">
-                      <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-blue-400 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
-                    </div>
-                    <label className="ms-2 text-base font-medium text-gray-900">I agree with the <a href="#" className="text-blue-600 hover:underline">terms and conditions</a></label>
-                  </div>
-                  <button type="submit" className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">Register new account</button>
+                  <button type="submit" className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">Save Editing</button>
                 </div>
               </form>
-              {/* <!-- Modal footer --> */}
             </div>
           </div>
         </div>

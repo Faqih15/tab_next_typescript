@@ -86,7 +86,7 @@ export default function FormLogin() {
               </div>
               <button
                 type="submit"
-                className="button-blue w-full text-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="bg-blue-600 hover:bg-blue-700  w-full text-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 Sign In
               </button>
