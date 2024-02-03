@@ -1,6 +1,6 @@
 // import React from 'react'
 import AsideAndTop from './../../../components/Layouts/Aside';
-import AddSaldo from '../../../components/Modal/Tabungan/TopUp';
+// import AddSaldo from '../../../components/Modal/Tabungan/TopUp';
 import TabelTab from './../../../components/Tabungan/TableTabungan';
 
 export default function TabPage() {
@@ -8,7 +8,7 @@ export default function TabPage() {
     <div>
       <AsideAndTop>
         <h1 className='text-red-500 font-semibold'>/dashboard/tabungan</h1>
-        <AddSaldo />
+        {/* <AddSaldo /> */}
         <TabelTab />
       </AsideAndTop>
     </div>

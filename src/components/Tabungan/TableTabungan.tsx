@@ -1,4 +1,4 @@
-import AddSaldo from './../Modal/Tabungan/TopUp';
+import AddSaldo from "./../Modal/Tabungan/TopUp";
 
 type KeySantri = {
   nama: string;
@@ -13,7 +13,7 @@ type KeySantri = {
 };
 async function getTabSantri() {
   const res = await fetch("http://localhost:5000/santri");
-  // to get value from localhost:5000 you must run the json-server on terminal with 
+  // to get value from localhost:5000 you must run the json-server on terminal with
   // npm run server
   return res.json();
 }
@@ -24,74 +24,42 @@ export default async function TabelTab() {
       nama: "nama",
       nim: "nim",
       no_tabungan: "no tabungan",
-      saldo: "saldo"
-    }
-  ]
+      saldo: "saldo",
+    },
+  ];
   const testTabunganSantri = await getTabSantri();
-    return (
-      <section className="">
-        <div className="relative overflow-x-auto">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-50">
-                {headClass.map((itemHead, index) => { 
-                  return  ( 
-                    <tr key={index} className="">
-                      <td className="px-6 py-2">
-                        {itemHead.nama}
-                      </td>
-                      <td className="px-6 py-2">
-                        {itemHead.nim}
-                      </td>
-                      <td className="px-6 py-2">
-                        {itemHead.no_tabungan}
-                      </td>
-                      <td className="px-6 py-2">
-                        {itemHead.saldo}
-                      </td>
-                      <td className="px-6 py-2 flex justify-start">
-                        Action
-                      </td>
-                    </tr> ) } ) }
-            </thead>
-            <tbody className="text-base capitalize">
-                {testTabunganSantri.map((tabItem: KeySantri, index: number) => {
-                  return (
-                    <tr key={index} className="">
-                      <td className="px-6 py-2">
-                        {tabItem.nama}
-                      </td>
-                      <td className="px-6 py-2">
-                        {tabItem.nim}
-                      </td>
-                      <td className="px-6 py-2">
-                        {tabItem.no_tabungan}
-                      </td>
-                      <td className="px-6 py-2">
-                        {tabItem.saldo}
-                      </td>
-                      <td className="px-5 flex justify-start gap-2">
-                        <AddSaldo tabItem={tabItem} />
-                        {/* <button
-                          type="button"
-                          className="focus:outline-none text-black bg-yellow-300 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
-                          Update
-                        </button> */}
-                        {/* <Link
-                            href={{
-                              pathname: `/admin/santri/edit/${santri.id}`,
-                            }}
-                            className="bg-transparent hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center"
-                          >
-                            <span>💰</span>
-                          </Link> */}
-                      </td>
-                    </tr>
-                  )
-                })}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    );
-  }
-  
+  return (
+    <section className="">
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-left rtl:text-right text-gray-500">
+          <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-50">
+            {headClass.map((itemHead, index) => {
+              return (
+                <tr key={index} className="">
+                  <td className="px-6 py-2">{itemHead.nama}</td>
+                  <td className="px-6 py-2">{itemHead.nim}</td>
+                  <td className="px-6 py-2">{itemHead.no_tabungan}</td>
+                  <td className="px-6 py-2">{itemHead.saldo}</td>
+                  <td className="px-6 py-2 flex justify-start">Action</td>
+                </tr>
+              );
+            })}
+          </thead>
+          <tbody className="text-base capitalize">
+            {testTabunganSantri.map((tabItem: KeySantri, index: number) => {
+              return (
+                <tr key={index}>
+                  <td className="px-5">{tabItem.nama}</td>
+                  <td className="px-5">{tabItem.nim}</td>
+                  <td className="px-5">{tabItem.no_tabungan}</td>
+                  <td className="px-5">{tabItem.saldo}</td>
+                  <td className="px-5 flex justify-start gap-2"><AddSaldo tabItem={tabItem} /></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
