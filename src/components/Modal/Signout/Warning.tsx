@@ -60,13 +60,13 @@ export default function WarningSignout() {
                 <div className="max-w-sm py-5 flex flex-col gap-3 px-3">
                   <a
                     href="/auth"
-                    className="button-red text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-base px-5 py-2.5 text-center"
+                    className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-base px-5 py-2.5 text-center"
                   >
                     Sign Out
                   </a>
                   <button 
                     type="button"
-                    className="button-gray text-black focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-base px-5 py-2.5 mb-2 text-center"
+                    className="bg-gray-100 border border-gray-400 hover:bg-gray-400 text-black focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-base px-5 py-2.5 mb-2 text-center"
                     onClick={showmodal}
                   >
                     Cancel
