@@ -1,6 +1,6 @@
 // import React from 'react'
 import AsideAndTop from './../../../components/Layouts/Aside';
-import AddSaldo from './../../../components/Modal/Tabungan/NewTab';
+import AddSaldo from '../../../components/Modal/Tabungan/TopUp';
 import TabelTab from './../../../components/Tabungan/TableTabungan';
 
 export default function TabPage() {

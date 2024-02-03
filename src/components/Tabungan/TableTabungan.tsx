@@ -1,3 +1,4 @@
+import AddSaldo from './../Modal/Tabungan/TopUp';
 
 type KeySantri = {
   nama: string;
@@ -26,22 +27,6 @@ export default async function TabelTab() {
       saldo: "saldo"
     }
   ]
-  const listClass = [
-    { nama: "1 Tsanawiyah", code: 1 },
-    { nama: "2 Tsanawiyah", code: 1 },
-    { nama: "3 Tsanawiyah", code: 1 },
-    { nama: "1 Aliyah", code: 1 },
-    { nama: "2 Aliyah", code: 1 },
-    { nama: "3 Aliyah", code: 1 },
-    { nama: "1 Muallimin", code: 1 },
-    { nama: "2 Mualiimin", code: 1 },
-    { nama: "3 Mualiimin", code: 1 },
-    { nama: "1 Muallimat", code: 1 },
-    { nama: "2 Muallimat", code: 1 },
-    { nama: "3 Muallimat", code: 1 },
-    { nama: "Istisyarah", code: 1 },
-    { nama: "Munaqasyah", code: 1 }
-  ];
   const testTabunganSantri = await getTabSantri();
     return (
       <section className="">
@@ -85,11 +70,20 @@ export default async function TabelTab() {
                         {tabItem.saldo}
                       </td>
                       <td className="px-5 flex justify-start gap-2">
-                        <button
+                        <AddSaldo tabItem={tabItem} />
+                        {/* <button
                           type="button"
                           className="focus:outline-none text-black bg-yellow-300 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
                           Update
-                        </button>
+                        </button> */}
+                        {/* <Link
+                            href={{
+                              pathname: `/admin/santri/edit/${santri.id}`,
+                            }}
+                            className="bg-transparent hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center"
+                          >
+                            <span>💰</span>
+                          </Link> */}
                       </td>
                     </tr>
                   )
