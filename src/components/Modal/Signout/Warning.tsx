@@ -5,9 +5,9 @@ import { MdLogout } from "react-icons/md";
 export default function WarningSignout() {
   // const [first, setfirst] = useState<string>();
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [colorize, setColorize] = useState<boolean>(false);
+  // const [colorize, setColorize] = useState<boolean>(false);
 
-  const showmodal = (e) => {
+  const showmodal = (e: any) => {
     e.preventDefault()
     if (isOpen === false) {
       console.log(isOpen, "isOpen status");
@@ -18,14 +18,14 @@ export default function WarningSignout() {
     }
   };
   
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setColorize((prevColorize) => !prevColorize);
-      console.log("colorize", colorize);
-    }, 1000);
-    // Clear the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, []); // Empty dependency array to run the effect only once on mount
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setColorize((prevColorize) => !prevColorize);
+  //     console.log("colorize", colorize);
+  //   }, 1000);
+  //   // Clear the interval when the component unmounts
+  //   return () => clearInterval(intervalId);
+  // }, []); // Empty dependency array to run the effect only once on mount
 
   return (
     <section>
