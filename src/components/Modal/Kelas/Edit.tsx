@@ -14,10 +14,10 @@ import { MdClose } from "react-icons/md";
 //   no_tabungan: string;
 // };
 
-export default function AddSaldo({ tabItem }: any) {
+export default function EditClass({ tabItem }: any) {
   // if i add {tabItem: KeySantri} in props, tabItem is not defined
   const [openNewTab, setOpenNT] = useState<boolean>(false);
-  const [dataForTopup, setDataForTopup] = useState("");
+  const [dataEdit, setDataEdit] = useState("");
   
   const showmodal = () => {
     if (openNewTab === false) {
@@ -32,7 +32,7 @@ export default function AddSaldo({ tabItem }: any) {
           `http://localhost:5000/santri/${tabItem.id}`
         );
         const dataRes = await response.json();
-        setDataForTopup(dataRes);
+        setDataEdit(dataRes);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -50,7 +50,7 @@ export default function AddSaldo({ tabItem }: any) {
         type="button"
         onClick={showmodal}
       >
-        Top Up 💰
+        Edit Class
       </button>
 
       {/* <!-- Main modal --> */}
@@ -67,7 +67,7 @@ export default function AddSaldo({ tabItem }: any) {
               <form>
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Top Up Tabungan
+                    Edit Class
                   </h3>
                   <button
                     type="submit"
@@ -82,7 +82,7 @@ export default function AddSaldo({ tabItem }: any) {
                 <div className="max-w-sm mx-auto py-5">
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">
-                      Nama Santri
+                      Edi Class
                     </label>
                     <input
                       type="text"
@@ -95,7 +95,7 @@ export default function AddSaldo({ tabItem }: any) {
                   </div>
                   <div className="mb-4">
                     <label className="block mb-1 text-sm font-medium text-gray-900">
-                      No Tabungan
+                      Edit Code
                     </label>
                     <input
                       type="number"
@@ -106,37 +106,11 @@ export default function AddSaldo({ tabItem }: any) {
                       required
                     />
                   </div>
-                  <div className="mb-4">
-                    <label className="block mb-1 text-sm font-medium text-gray-900">
-                      NIM
-                    </label>
-                    <input
-                      type="number"
-                      id="nim"
-                      
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                      placeholder="nim"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block mb-1 text-sm font-medium text-gray-900">
-                      Uang masuk
-                    </label>
-                    <input
-                      type="number"
-                      id="saldoin"
-                      
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                      placeholder="nim"
-                      required
-                    />
-                  </div>
                   <button
                     type="submit"
                     className="button-blue text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   >
-                    Submit Nabung
+                    Submit Edit Class
                   </button>
                 </div>
               </form>

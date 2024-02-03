@@ -77,14 +77,10 @@ export default function NewSantri() {
                     </div>
                     <label className="ms-2 text-base font-medium text-gray-900">I agree with the <a href="#" className="text-blue-600 hover:underline">terms and conditions</a></label>
                   </div>
-                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">Register new account</button>
+                  <button type="submit" className="button-blue text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">Register new account</button>
                 </div>
               </form>
               {/* <!-- Modal footer --> */}
-              {/* <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <button data-modal-hide="default-modal" type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">I accept</button>
-                <button data-modal-hide="default-modal" type="button" className="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-base font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Decline</button>
-              </div> */}
             </div>
           </div>
         </div>
