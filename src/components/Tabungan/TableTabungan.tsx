@@ -28,6 +28,7 @@ export default async function TabelTab() {
     },
   ];
   const testTabunganSantri = await getTabSantri();
+
   return (
     <section className="">
       <div className="relative overflow-x-auto">
@@ -53,7 +54,9 @@ export default async function TabelTab() {
                   <td className="px-5">{tabItem.nim}</td>
                   <td className="px-5">{tabItem.no_tabungan}</td>
                   <td className="px-5">{tabItem.saldo}</td>
-                  <td className="px-5 flex justify-start gap-2"><AddSaldo tabItem={tabItem} /></td>
+                  <td className="px-5 flex justify-start gap-2">
+                    <AddSaldo id={tabItem.id} />
+                  </td>
                 </tr>
               );
             })}
