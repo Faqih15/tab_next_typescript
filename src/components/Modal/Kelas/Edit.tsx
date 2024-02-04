@@ -2,40 +2,34 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
-// type KeySantri = {
-//   nama: string;
-//   nim: number;
-//   orangtua: string;
-//   id_kelas: number;
-//   alamat: string;
-//   id_card: number;
-//   saldo: number;
-//   id: number;
-//   no_tabungan: string;
-// };
+type KeyClass = {
+  nama: string;
+  code: number;
+  id: number;
+};
 
-export default function EditClass({ tabItem }: any) {
+export default function EditClass({id}) {
   // if i add {tabItem: KeySantri} in props, tabItem is not defined
   const [openNewTab, setOpenNT] = useState<boolean>(false);
-  const [dataEdit, setDataEdit] = useState("");
+  const [kelasEdit, setKelasEdit] = useState<KeyClass>();
   
-  const showmodal = () => {
+  async function getClassId() {
+    const res = await fetch(`http://localhost:5000/listclass/${id}`);
+    console.log("123 res", res)
+    return res.json();
+    // to get value from localhost:5000 you must run the json-server on terminal with
+    // npm run server
+  }
+
+  const showmodal = async () => {
     if (openNewTab === false) {
+      const newData = await getClassId();
+      setKelasEdit(newData);
       setOpenNT(true);
+      console.log("1", newData)
     } else {
       console.log("else openNewTab");
       setOpenNT(false);
-    }
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `http://localhost:5000/santri/${tabItem.id}`
-        );
-        const dataRes = await response.json();
-        setDataEdit(dataRes);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
     }
   };
 
@@ -64,7 +58,6 @@ export default function EditClass({ tabItem }: any) {
             {/* <!-- Modal content --> */}
             <div className="relative bg-white rounded-lg border border-blue-400 shadow">
               {/* <!-- Modal header --> */}
-              <form>
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
                     Edit Class
@@ -79,41 +72,42 @@ export default function EditClass({ tabItem }: any) {
                   </button>
                 </div>
                 {/* <!-- Modal body --> */}
-                <div className="max-w-sm mx-auto py-5">
-                  <div className="mb-4">
-                    <label className="block mb-1 text-sm font-medium text-gray-900">
-                      Edi Class
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                      placeholder="nama"
-                      required
-                    />
+                <form>
+                  <div className="max-w-sm mx-auto py-5">
+                    <div className="mb-4">
+                      <label className="block mb-1 text-sm font-medium text-gray-900">
+                        Edi Class
+                      </label>
+                      <input
+                        type="text"
+                        id="username"
+                        
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="nama"
+                        required
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label className="block mb-1 text-sm font-medium text-gray-900">
+                        Edit Code
+                      </label>
+                      <input
+                        type="number"
+                        id="notab"
+                        
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="nim"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    >
+                      Submit Edit Class
+                    </button>
                   </div>
-                  <div className="mb-4">
-                    <label className="block mb-1 text-sm font-medium text-gray-900">
-                      Edit Code
-                    </label>
-                    <input
-                      type="number"
-                      id="notab"
-                      
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                      placeholder="nim"
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  >
-                    Submit Edit Class
-                  </button>
-                </div>
-              </form>
+                </form>
             </div>
           </div>
         </div>

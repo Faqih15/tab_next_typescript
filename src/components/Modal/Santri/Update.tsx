@@ -15,14 +15,12 @@ type KeySantri = {
   id: number;
 };
 
-export default function UpdateSantri() {
-  // const [first, setfirst] = useState<string>();
+export default function UpdateSantri({parameterId}) {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [dataEdit, setdataEdit] = useState<KeySantri>();
-  // const [hasilEdit, sethasilEdit] = useState<KeySantri>();
 
   async function getProfilSantri() {
-    const res = await fetch("http://localhost:5000/santri/16f8");
+    const res = await fetch(`http://localhost:5000/santri/${parameterId}`);
     return res.json();
     // to get value from localhost:5000 you must run the json-server on terminal with
     // npm run server

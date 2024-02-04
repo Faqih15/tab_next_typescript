@@ -3,7 +3,9 @@ import EditClass from "./../Modal/Kelas/Edit";
 type KeyClass = {
   nama: string;
   code: number;
+  id: number;
 };
+
 async function getKelas() {
   const res = await fetch("http://localhost:5000/listclass");
   console.log(res, "respon");
@@ -43,7 +45,7 @@ export default async function TabelKelas() {
                     <td className="px-5">{itemClass.nama}</td>
                     <td className="px-5">{itemClass.code}</td>
                     <td className="px-5 flex justify-start gap-2">
-                      <EditClass />
+                      <EditClass id={itemClass.id} />
                     </td>
                   </tr>
                 )
