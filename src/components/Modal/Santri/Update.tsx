@@ -1,26 +1,50 @@
-'use client'
+"use client";
+
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
+
+type KeySantri = {
+  nama: string;
+  nim: number;
+  id_kelas: number;
+  no_tabungan: string;
+  orangtua: string;
+  alamat: string;
+  id_card: number;
+  saldo: number;
+  id: number;
+};
 
 export default function UpdateSantri() {
   // const [first, setfirst] = useState<string>();
   const [isOpen, setOpen] = useState<boolean>(false);
-  const showmodal = () => {
+  const [dataEdit, setdataEdit] = useState<KeySantri>();
+  // const [hasilEdit, sethasilEdit] = useState<KeySantri>();
+
+  async function getProfilSantri() {
+    const res = await fetch("http://localhost:5000/santri/16f8");
+    return res.json();
+    // to get value from localhost:5000 you must run the json-server on terminal with
+    // npm run server
+  }
+
+  const showmodal = async () => {
     if (isOpen === false) {
-      console.log(isOpen, 'isOpen status');
-      setOpen(true)
+      console.log(isOpen, "isOpen status");
+      const newData = await getProfilSantri();
+      setdataEdit(newData);
+      setOpen(true);
+      console.log("1", dataEdit);
     } else {
       console.log("else isOpen");
-      setOpen(false)
+      setOpen(false);
+      setdataEdit(undefined);
+      console.log("2", dataEdit);
     }
-  }
+  };
+
   return (
     <section>
-      {/* <!-- Modal toggle --> */}
-      {/* <button data-modal-target="default-modal" data-modal-toggle="default-modal" className="bg-blue-600 hover:bg-blue-700  block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" type="button" onClick={showmodal}>
-        Add New Profil
-      </button> */}
-
       <button
         type="button"
         className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
@@ -29,59 +53,139 @@ export default function UpdateSantri() {
         Update
       </button>
       {/* <!-- Main modal --> */}
-      <div className={(isOpen === false ? "hidden" : "block")}>
-        <div id="default-modal" aria-hidden="true" className="overflow-y-auto overflow-x-hidden fixed inset-x-0 top-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-gray-700/75" >
+      <div className={isOpen === false ? "hidden" : "block"}>
+        <div
+          id="default-modal"
+          aria-hidden="true"
+          className="overflow-y-auto overflow-x-hidden fixed inset-x-0 top-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-gray-700/75"
+        >
           <div className="relative p-4 w-full max-w-2xl max-h-full">
             {/* <!-- Modal content --> */}
             <div className="relative bg-white rounded-lg border border-blue-400 shadow">
               {/* <!-- Modal header --> */}
-              <form>
-                <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                      Update Profil
-                  </h3>
-                  <button
-                    type="submit"
-                    className="text-gray-700 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                    data-modal-hide="default-modal"
-                    onClick={showmodal}>
-                    <MdClose />
-                    <span className="sr-only">Close modal</span>
-                  </button>
+              <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Update Profil of "{dataEdit?.nama}"
+                </h3>
+                <button
+                  type="submit"
+                  className="text-gray-700 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                  data-modal-hide="default-modal"
+                  onClick={showmodal}
+                >
+                  <MdClose />
+                  <span className="sr-only">Close modal</span>
+                </button>
+              </div>
+              {/* <!-- Modal body --> */}
+              {!!dataEdit ? (
+                <form>
+                  <div className="max-w-sm mx-auto py-5">
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        id="username"
+                        defaultValue={dataEdit?.nama}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="nama"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        NIM
+                      </label>
+                      <input
+                        type="number"
+                        id="nim"
+                        defaultValue={dataEdit?.nim}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="nim"
+                        required
+                        min="5"
+                        max="5"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        Kelas
+                      </label>
+                      <input
+                        type="text"
+                        id="class"
+                        defaultValue={dataEdit?.id_kelas}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="kelas"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        No Tabungan
+                      </label>
+                      <input
+                        type="text"
+                        id="notab"
+                        defaultValue={dataEdit?.no_tabungan}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="no tabungan"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        Nama Orangtua
+                      </label>
+                      <input
+                        type="text"
+                        id="ortu"
+                        defaultValue={dataEdit?.orangtua}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="nama orangtua"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        Alamat
+                      </label>
+                      <input
+                        type="text"
+                        id="address"
+                        defaultValue={dataEdit?.alamat}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="alamat"
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="block text-base font-medium text-gray-900">
+                        ID Card
+                      </label>
+                      <input
+                        type="number"
+                        id="idcard"
+                        defaultValue={dataEdit?.id_card}
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        placeholder="id card"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center"
+                    >
+                      Save Editing
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <div className="text-2xl text-red-600 text-bold py-5 px-4 text-center">
+                  {" "}
+                  error dataEdit undefined{" "}
                 </div>
-                {/* <!-- Modal body --> */}
-                <div className="max-w-sm mx-auto py-5">
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">Your Name</label>
-                    <input type="text" id="username" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama" required />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">NIM</label>
-                    <input type="number" id="nim" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nim" required min="5" max="5" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">Kelas</label>
-                    <input type="text" id="class" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="kelas" />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">No Tabungan</label>
-                    <input type="number" id="notab" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="no tabungan" required />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">Nama Orangtua</label>
-                    <input type="text" id="ortu" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="nama orangtua" required />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">Alamat</label>
-                    <input type="text" id="address" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="alamat" required />
-                  </div>
-                  <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">ID Card</label>
-                    <input type="number" id="idcard" className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2" placeholder="id card" />
-                  </div>
-                  <button type="submit" className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center">Save Editing</button>
-                </div>
-              </form>
+              )}
             </div>
           </div>
         </div>
@@ -89,4 +193,3 @@ export default function UpdateSantri() {
     </section>
   );
 }
-  

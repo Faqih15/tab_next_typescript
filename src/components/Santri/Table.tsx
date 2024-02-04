@@ -49,7 +49,7 @@ const testSantri = await getSantri();
                   <td className="px-6 py-2">{headTable.alamat}</td>
                   <td className="px-6 py-2">{headTable.id_card}</td>
                   <td className="px-6 py-2">{headTable.saldo}</td>
-                  <td className="px-6 py-2 flex justify-center">
+                  <td className="px-6 py-2 flex justify-center items-center">
                     {headTable.action}
                   </td>
                 </tr>
@@ -68,7 +68,7 @@ const testSantri = await getSantri();
                   <td className="px-5">{santri.alamat}</td>
                   <td className="px-5">{santri.id_card}</td>
                   <td className="px-5">{santri.saldo}</td>
-                  <td className="px-5 flex justify-start gap-2">
+                  <td className="px-5 flex justify-start items-center gap-2">
                     {/* <button
                       type="button"
                       className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"

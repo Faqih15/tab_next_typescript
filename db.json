@@ -8,7 +8,7 @@
       "alamat": "Mantung",
       "id_card": 3300133001,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-110-01"
     },
     {
       "nama": "Json Fatimah Azzahra",
@@ -18,7 +18,7 @@
       "alamat": "Cirebon",
       "id_card": 3300233002,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-110-02"
     },
     {
       "nama": "Json Muhammad Iqbal",
@@ -28,7 +28,7 @@
       "alamat": "Bandung",
       "id_card": 3300333003,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-109-01"
     },
     {
       "nama": "Json Syaifuddin Ahmad",
@@ -38,7 +38,7 @@
       "alamat": "Jakarta",
       "id_card": 3300433004,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-144-07"
     },
     {
       "nama": "Json Rizky Pratama",
@@ -48,7 +48,7 @@
       "alamat": "Yogyakarta",
       "id_card": 3300533005,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-137-07"
     },
     {
       "nama": "Json Siti Rahma",
@@ -58,7 +58,7 @@
       "alamat": "Surabaya",
       "id_card": 3300633006,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-142-03"
     },
     {
       "nama": "Json Fachrul Razi",
@@ -68,7 +68,7 @@
       "alamat": "Malang",
       "id_card": 3300733007,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-148-06"
     },
     {
       "nama": "Json Dian Fitriani",
@@ -78,7 +78,7 @@
       "alamat": "Semarang",
       "id_card": 3300833008,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-109-04"
     },
     {
       "nama": "Json Ahmad Fauzan",
@@ -88,7 +88,7 @@
       "alamat": "Denpasar",
       "id_card": 3300933009,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-166-04"
     },
     {
       "nama": "Json Rina Fitria",
@@ -98,7 +98,7 @@
       "alamat": "Palembang",
       "id_card": 3301033010,
       "saldo": 0,
-      "no_tabungan": "ST-02-110-03"
+      "no_tabungan": "ST-02-173-03"
     }
   ],
   "listclass" : [
