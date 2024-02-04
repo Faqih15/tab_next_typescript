@@ -15,17 +15,15 @@ type KeySantri = {
   no_tabungan: string;
 };
 
-export default function AddSaldo(id: any) {
-  // if i add {tabItem: KeySantri} in props, tabItem is not defined
+export default function AddSaldo({id}) {
+  // if i add AddSaldo({tabItem: KeySantri}) in props, tabItem is not defined
+  // AddSaldo(id: any) cant used
+  // {id} error but props can readed and used
   const [openNewTab, setOpenNT] = useState<boolean>(false);
   const [dataForTopup, setDataForTopup] = useState<KeySantri>();
   
-  // const [dataForTopup, setDataForTopup] = useState<KeySantri>();
-  
-  console.log("tabItem id", id)
-
   async function getTabSantri() {
-    const res = await fetch("http://localhost:5000/santri/16f8");
+    const res = await fetch(`http://localhost:5000/santri/${id}`);
     console.log("123 res", res)
     return res.json();
     // to get value from localhost:5000 you must run the json-server on terminal with
@@ -45,7 +43,6 @@ export default function AddSaldo(id: any) {
     }
   };
 
-  // console.log(tabItem, "tabItem")
   // useEffect(() => {
   //   async function fetchData() {
   //     try {
@@ -171,15 +168,3 @@ export default function AddSaldo(id: any) {
     </section>
   );
 }
-
-// type KeySantri = {
-//   nama: string;
-//   nim: number;
-//   orangtua: string;
-//   id_kelas: number;
-//   alamat: string;
-//   id_card: number;
-//   saldo: number;
-//   id: number;
-//   no_tabungan: string;
-// };

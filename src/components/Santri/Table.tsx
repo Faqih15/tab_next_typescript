@@ -75,7 +75,7 @@ const testSantri = await getSantri();
                     >
                       Update
                     </button> */}
-                    <UpdateSantri santri={santri} />
+                    <UpdateSantri id={santri.id} />
                     <button
                       type="button"
                       className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
