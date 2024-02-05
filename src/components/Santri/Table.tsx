@@ -8,14 +8,15 @@ type KeyTabSantri = {
   alamat: string;
   id_card: number;
   saldo: number;
-  id: number;
+  id: string;
   no_tabungan: string;
 };
 
 async function getSantri() {
-  const res = await fetch("http://localhost:5000/santri");
+  const res = await fetch("http://localhost:5000/santri", { cache: 'no-store'});
   // to get value from localhost:5000 you must run the json-server on terminal with 
   // npm run server
+  // { cache: 'no-store'} digunakan agar ketika ada perubahan pd db.json tidak perlu fetch lagi
   return res.json();
 }
 export default async function SantriTable() {

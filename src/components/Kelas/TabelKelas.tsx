@@ -3,7 +3,7 @@ import EditClass from "./../Modal/Kelas/Edit";
 type KeyClass = {
   nama: string;
   code: number;
-  id: number;
+  id: string;
 };
 
 async function getKelas() {
@@ -45,7 +45,7 @@ export default async function TabelKelas() {
                     <td className="px-5">{itemClass.nama}</td>
                     <td className="px-5">{itemClass.code}</td>
                     <td className="px-5 flex justify-start gap-2">
-                      <EditClass id={itemClass.id} />
+                      <EditClass paramsId={itemClass.id} />
                     </td>
                   </tr>
                 )

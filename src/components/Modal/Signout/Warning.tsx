@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import { MdLogout } from "react-icons/md";
-
-
 
 export default function WarningSignout() {
   // const [first, setfirst] = useState<string>();

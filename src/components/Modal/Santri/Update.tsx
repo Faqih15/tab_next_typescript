@@ -12,7 +12,7 @@ type KeySantri = {
   alamat: string;
   id_card: number;
   saldo: number;
-  id: number;
+  id: string;
 };
 
 export default function UpdateSantri({parameterId}) {
@@ -20,7 +20,9 @@ export default function UpdateSantri({parameterId}) {
   const [dataEdit, setdataEdit] = useState<KeySantri>();
 
   async function getProfilSantri() {
-    const res = await fetch(`http://localhost:5000/santri/${parameterId}`);
+    const res = await fetch(`http://localhost:5000/santri/${parameterId}`, { cache: 'no-store'});
+    alert("hello world !")
+    await console.log("res", res)
     return res.json();
     // to get value from localhost:5000 you must run the json-server on terminal with
     // npm run server
@@ -103,8 +105,8 @@ export default function UpdateSantri({parameterId}) {
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nim"
                         required
-                        min="5"
-                        max="5"
+                        min="10001"
+                        max="99999"
                       />
                     </div>
                     <div className="mb-3">
