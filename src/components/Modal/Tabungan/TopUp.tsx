@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdClose } from "react-icons/md";
 
 type KeySantri = {
@@ -11,11 +11,11 @@ type KeySantri = {
   alamat: string;
   id_card: number;
   saldo: number;
-  id: number;
+  id: string;
   no_tabungan: string;
 };
 
-export default function AddSaldo({id}) {
+export default function AddSaldo(props: { id: string }) {
   // if i add AddSaldo({tabItem: KeySantri}) in props, tabItem is not defined
   // AddSaldo(id: any) cant used
   // {id} error but props can readed and used
@@ -23,7 +23,7 @@ export default function AddSaldo({id}) {
   const [dataForTopup, setDataForTopup] = useState<KeySantri>();
   
   async function getTabSantri() {
-    const res = await fetch(`http://localhost:5000/santri/${id}`);
+    const res = await fetch(`http://localhost:5000/santri/${props.id}`, { cache: 'no-store'});
     console.log("123 res", res)
     return res.json();
     // to get value from localhost:5000 you must run the json-server on terminal with
@@ -31,30 +31,28 @@ export default function AddSaldo({id}) {
   }
 
   const showmodal = async () => {
-    if (openNewTab === false) {
-      const newData = await getTabSantri();
-      setDataForTopup(newData);
-      setOpenNT(true);
-      console.log("1", dataForTopup);
-    } else {
-      setOpenNT(false);
-      setDataForTopup(undefined);
-      console.log("2", dataForTopup);
-    }
+    setOpenNT(!openNewTab)
+    // if (openNewTab === false) {
+    //   const newData = await getTabSantri();
+    //   setDataForTopup(newData);
+    //   setOpenNT(true);
+    //   console.log("1a", newData);
+    //   console.log("1b", dataForTopup);
+    // } else {
+    //   setOpenNT(false);
+    //   setDataForTopup(undefined);
+    //   console.log("2", dataForTopup);
+    // }
   };
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch(`/api/santri/getid/${id}`);
-  //       const data = await response.json();
-  //       setFirstData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, [id]);
+  useEffect(async () => {
+    if (openNewTab) {
+      const newData = await getTabSantri();
+      setDataForTopup(newData);
+    } else {
+      setDataForTopup(undefined);
+    }
+  }, [openNewTab]);
 
   return (
     <section>

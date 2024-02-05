@@ -8,9 +8,10 @@ type KeySantri = {
   alamat: string;
   id_card: number;
   saldo: number;
-  id: number;
+  id: string;
   no_tabungan: string;
 };
+
 async function getTabSantri() {
   const res = await fetch("http://localhost:5000/santri");
   // to get value from localhost:5000 you must run the json-server on terminal with

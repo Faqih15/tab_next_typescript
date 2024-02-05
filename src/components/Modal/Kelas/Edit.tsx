@@ -5,17 +5,17 @@ import { MdClose } from "react-icons/md";
 type KeyClass = {
   nama: string;
   code: number;
-  id: number;
+  id: string;
 };
 
-export default function EditClass({id}) {
+export default function EditClass({paramsId}) {
   // if i add {tabItem: KeySantri} in props, tabItem is not defined
   const [openNewTab, setOpenNT] = useState<boolean>(false);
   const [kelasEdit, setKelasEdit] = useState<KeyClass>();
   
   async function getClassId() {
-    const res = await fetch(`http://localhost:5000/listclass/${id}`);
-    console.log("123 res", res)
+    const res = await fetch(`http://localhost:5000/listclass/${paramsId}`, { cache: 'no-store'});
+    console.log("123 res", paramsId)
     return res.json();
     // to get value from localhost:5000 you must run the json-server on terminal with
     // npm run server
@@ -81,7 +81,6 @@ export default function EditClass({id}) {
                       <input
                         type="text"
                         id="username"
-                        
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nama"
                         required
@@ -94,7 +93,6 @@ export default function EditClass({id}) {
                       <input
                         type="number"
                         id="notab"
-                        
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nim"
                         required
