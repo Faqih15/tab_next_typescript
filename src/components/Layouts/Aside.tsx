@@ -198,7 +198,7 @@ export default function AsideAndTop({ children }: any) {
       </aside>
 
       <div className="p-4 sm:ml-72">
-        <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg">
+        <div className="p-4 mt-2 mb-5 border-2 border-gray-200 border-dashed rounded-lg">
           <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="flex items-center justify-center h-24 rounded bg-gray-50">
               <p className="text-2xl text-gray-400 ">
@@ -216,10 +216,10 @@ export default function AsideAndTop({ children }: any) {
               </p>
             </div>
           </div>
-          {children}
         </div>
-        <footer className="bg-white">
-          <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          {children}
+        <footer className="bg-blue-200">
+          <div className="mx-auto w-full max-w-screen-xl py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                 <a href="https://flowbite.com/" className="flex items-center">

@@ -6,7 +6,7 @@ import { KeySantri } from "@/types/santri";
 export default function TabelTab() {
   const [modal, setModal]: any = useState(null);
   const [dataTabungan, setDataTabungan] = useState([]);
-  console.log('check', !!dataTabungan?.length)
+  console.log('check', dataTabungan?.length)
   const headClass = [
     {
       nama: "nama",
