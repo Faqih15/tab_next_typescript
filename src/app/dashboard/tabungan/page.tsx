@@ -1,5 +1,5 @@
 import AsideAndTop from './../../../components/Layouts/Aside';
-import TabelTab from './../../../components/Tabungan/TableTabungan';
+import TabelTab from './TableTabungan';
 
 export default function TabPage() {
   return (
