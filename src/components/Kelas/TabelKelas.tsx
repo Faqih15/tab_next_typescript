@@ -1,4 +1,5 @@
 import EditClass from "./../Modal/Kelas/Edit";
+import UpdateClass from "./../Modal/Kelas/Update";
 
 type KeyClass = {
   nama: string;
@@ -46,6 +47,7 @@ export default async function TabelKelas() {
                     <td className="px-5">{itemClass.code}</td>
                     <td className="px-5 flex justify-start gap-2">
                       <EditClass paramsId={itemClass.id} />
+                      <UpdateClass paramsId={itemClass.id} />
                     </td>
                   </tr>
                 )
