@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import * as Collapsible from "@radix-ui/react-collapsible";
 // import WarningSignout from "./components/Modal/Signout/Warning";
 import WarningSignout from "./../Modal/Signout/Warning";
 
@@ -22,18 +22,22 @@ import { SiDiscord } from "react-icons/si";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { TbMailbox } from "react-icons/tb";
 import { PiUsersFill, PiNotePencilBold } from "react-icons/pi";
+import CollapsibleDemo from "./MenuList";
 
 export default function AsideAndTop({ children }: any) {
-  const [isShow, setIsShow] = useState<boolean>(false);
-  const showMenu = () => {
-    if (isShow === false) {
-      console.log(isShow, "isShow status");
-      setIsShow(true);
-    } else {
-      console.log("else isShow");
-      setIsShow(false);
-    }
-  };
+  // const [isShow, setIsShow] = useState<boolean>(false);
+  const [open, setOpen] = React.useState<boolean>(false);
+
+  // const showMenu = () => {
+  //   if (isShow === false) {
+  //     console.log(isShow, "isShow status");
+  //     setIsShow(true);
+  //   } else {
+  //     console.log("else isShow");
+  //     setIsShow(false);
+  //   }
+  // };
+  
   return (
     <>
       <button
@@ -62,6 +66,7 @@ export default function AsideAndTop({ children }: any) {
       <aside
         id="default-sidebar"
         className="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        // className="fixed top-0 left-0 z-40 w-1/4 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
@@ -83,7 +88,7 @@ export default function AsideAndTop({ children }: any) {
                 <span className="ms-3 text-lg font-semibold">Dashboard 123</span>
               </a>
             </li>
-            <li>
+            {/* <li>
               <button
                 type="button"
                 onClick={showMenu}
@@ -96,9 +101,9 @@ export default function AsideAndTop({ children }: any) {
                   Data
                 </span>
                 {!isShow ? (
-                  <MdKeyboardArrowRight className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-black" />
+                  <MdKeyboardArrowRight className="w-7 h-7 text-gray-500 transition duration-75 group-hover:text-blue-500" />
                 ) : (
-                  <MdKeyboardArrowDown className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-black" />
+                  <MdKeyboardArrowDown className="w-7 h-7 text-blue-500 transition duration-75" />
                 )}
               </button>
               <div className={isShow === false ? "hidden" : "block"}>
@@ -132,6 +137,59 @@ export default function AsideAndTop({ children }: any) {
                   </li>
                 </ul>
               </div>
+            </li> */}
+            <li>
+              <Collapsible.Root open={open} onOpenChange={setOpen}>
+                <Collapsible.Trigger asChild>
+                  <button
+                    type="button"
+                    className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
+                    aria-controls="dropdown-example"
+                    data-collapse-toggle="dropdown-example"
+                  >
+                    <MdListAlt className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black" />
+                    <span className="flex-1 ms-3 text-lg text-left font-semibold rtl:text-right whitespace-nowrap">
+                      Table of Data
+                    </span>
+                    {!open ? (
+                      <MdKeyboardArrowRight className="w-7 h-7 text-gray-500 transition duration-75 group-hover:text-blue-500" />
+                    ) : (
+                      <MdKeyboardArrowDown className="w-7 h-7 text-blue-500 transition duration-75" />
+                    )}
+                  </button>
+                </Collapsible.Trigger>
+                <Collapsible.Content className="CollapsibleContent" >
+                  <ul id="dropdown-example" className="py-2 space-y-2">
+                    <li>
+                      <a
+                        href="/dashboard"
+                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      >
+                        <LuUsers className="w-6 h-6 text-base text-gray-500 transition duration-75 group-hover:text-black" />
+                        Santri
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/dashboard/kelas"
+                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      >
+                        <VscSymbolClass className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
+                        Kelas
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/dashboard/tabungan"
+                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      >
+                        <MdAttachMoney className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
+                        Tabungan
+                      </a>
+                    </li>
+                  </ul>
+                </Collapsible.Content>
+              </Collapsible.Root>
             </li>
             {/* <li>
 							<a href="/auth" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
@@ -166,7 +224,7 @@ export default function AsideAndTop({ children }: any) {
                 </span>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
@@ -192,7 +250,7 @@ export default function AsideAndTop({ children }: any) {
                 <PiNotePencilBold />
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </aside>
