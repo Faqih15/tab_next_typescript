@@ -1,5 +1,5 @@
-import EditClass from "./../Modal/Kelas/Edit";
-import UpdateClass from "./../Modal/Kelas/Update";
+import EditClass from "./Edit";
+import UpdateClass from "./Update";
 
 type KeyClass = {
   nama: string;

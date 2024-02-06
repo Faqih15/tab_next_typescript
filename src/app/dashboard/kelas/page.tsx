@@ -1,6 +1,6 @@
 import AsideAndTop from '../../../components/Layouts/Aside';
-import NewClass from '../../../components/Modal/Kelas/New';
-import TabelKelas from './../../../components/Kelas/TabelKelas';
+import NewClass from './New';
+import TabelKelas from './TabelKelas';
 
 export default function Dashboard() {
   return(

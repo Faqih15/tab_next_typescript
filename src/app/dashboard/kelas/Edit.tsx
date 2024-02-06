@@ -8,7 +8,7 @@ type KeyClass = {
   id: string;
 };
 
-export default function EditClass({ paramsId }) {
+export default function EditClass({ paramsId } : {paramsId: string}) {
   // if i add {tabItem: KeySantri} in props, tabItem is not defined
   const [openNewTab, setOpenNT] = useState<boolean>(false);
   const [kelasEdit, setKelasEdit] = useState<KeyClass>();
