@@ -36,3 +36,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 add this to package.json script : "server": "json-server -w db.json -p 5000" 
+
+- npm install @radix-ui/react-collapsible
+- npm install react-collapsible --save
+- npm install @radix-ui/themes
