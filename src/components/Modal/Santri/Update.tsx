@@ -21,7 +21,7 @@ export default function UpdateSantri({parameterId}) {
 
   async function getProfilSantri() {
     const res = await fetch(`http://localhost:5000/santri/${parameterId}`, { cache: 'no-store'});
-    alert("hello world !")
+    // alert("hello world !")
     await console.log("res", res)
     return res.json();
     // to get value from localhost:5000 you must run the json-server on terminal with
