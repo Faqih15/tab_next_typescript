@@ -3,10 +3,14 @@ import { useEffect, useMemo, useState } from "react";
 import ModalTopUp from "./ModalTopUp";
 import { KeySantri } from "@/types/santri";
 
+interface IUser {
+  nama: string;
+  nim: string;
+  no_tabungan: string;
+  saldo: string;
+}
+
 export default function TabelTab() {
-  const [modal, setModal]: any = useState(null);
-  const [dataTabungan, setDataTabungan] = useState([]);
-  console.log('check', dataTabungan?.length)
   const headClass = [
     {
       nama: "nama",
@@ -15,26 +19,30 @@ export default function TabelTab() {
       saldo: "saldo",
     },
   ];
+  
+  const [modal, setModal]: any = useState(null);
+  const [dataTabungan, setDataTabungan] = useState([]);
+
+  console.log('check', dataTabungan?.length)
 
   const getTabSantri = async () => {
     const res = await fetch("http://localhost:5000/santri");
     const data = await res.json();
     if (data?.length) setDataTabungan(data);
   };
-
   useEffect(() => {
     getTabSantri();
   }, []);
 
   useEffect(() => {
-    console.log(modal)
+    console.log('modal', modal)
   }, [modal])
   
-  const dataTest = useMemo(() => {
-    return modal || []
-  }, [modal])
+  // const dataTest = useMemo(() => {
+  //   return modal || []
+  // }, [modal])
 
-  console.log(dataTest)
+  // console.log(dataTest)
 
   return (
     <section className="">
@@ -68,9 +76,7 @@ export default function TabelTab() {
                         data-modal-toggle="default-modal"
                         className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
                         type="button"
-                        onClick={() => {
-                          setModal(tabItem);
-                        }}>
+                        onClick={() => { setModal(tabItem) }}>
                         Top Up 💰
                       </button>
                     </td>

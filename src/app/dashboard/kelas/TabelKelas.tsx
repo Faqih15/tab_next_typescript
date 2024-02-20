@@ -1,5 +1,6 @@
-import EditClass from "./Edit";
-import UpdateClass from "./Update";
+'use client'
+import { useEffect, useState } from "react";
+import UpdateClass from "./ModalUpdateClass";
 
 type KeyClass = {
   nama: string;
@@ -7,23 +8,28 @@ type KeyClass = {
   id: string;
 };
 
-async function getKelas() {
-  const res = await fetch("http://localhost:5000/listclass");
-  console.log(res, "respon");
-  // to get value from localhost:5000 you must run the json-server on terminal with 
-  // npm run server
-  return res.json();
-}
-
-export default async function TabelKelas() {
+export default function TabelKelas() {
   const headClass = [
     {
       nama: "nama",
       code: "kode kelas",
     }
   ]
-  const listClass = await getKelas();
-  
+
+  const [modal, setModal]: any = useState(null);
+  const [dataClass, setDataClass] = useState([]);
+
+  const getClass = async () => {
+    const res = await fetch("http://localhost:5000/listclass");
+    const data = await res.json();
+    if (data?.length) setDataClass(data);
+  };
+
+  useEffect(() => {
+    getClass();
+  }, []);
+  // console.log('dataClass 37', dataClass)  
+
   return (
     <section className="">
       <div className="relative overflow-x-auto">
@@ -40,14 +46,19 @@ export default async function TabelKelas() {
               })}
           </thead>
           <tbody className="text-base capitalize">
-              {listClass.map((itemClass: KeyClass, index: number) => {
+              {dataClass.map((itemClass: KeyClass, index: number) => {
                 return (
                   <tr key={index} className="">
                     <td className="px-5">{itemClass.nama}</td>
                     <td className="px-5">{itemClass.code}</td>
                     <td className="px-5 flex justify-start gap-2">
-                      <EditClass paramsId={itemClass.id} />
-                      <UpdateClass paramsId={itemClass.id} />
+                      <button
+                        className="bg-yellow-300 hover:bg-yellow-400  text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                        type="button"
+                        onClick={() => { setModal(itemClass) }}
+                      >
+                        Update Class
+                      </button>
                     </td>
                   </tr>
                 )
@@ -55,6 +66,7 @@ export default async function TabelKelas() {
           </tbody>
         </table>
       </div>
+      {!!modal && <UpdateClass item={modal} onClose={()=>setModal(null)}/>}
     </section>
   );
 }
