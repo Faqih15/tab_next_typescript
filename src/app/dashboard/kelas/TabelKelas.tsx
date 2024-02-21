@@ -66,7 +66,7 @@ export default function TabelKelas() {
           </tbody>
         </table>
       </div>
-      {!!modal && <UpdateClass item={modal} onClose={()=>setModal(null)}/>}
+      {!!modal && <UpdateClass dataUpClass={modal} onClose={()=>setModal(null)}/>}
     </section>
   );
 }

@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
 type KeyClass = {
@@ -8,8 +7,8 @@ type KeyClass = {
   id: string;
 };
 
-export default function UpdateClass({item, onClose} :any) {
-  console.log('item', item)
+export default function UpdateClass({dataUpClass, onClose} :any) {
+  console.log('item', dataUpClass)
   return (
     <section>
       {/* <!-- Main modal --> */}
@@ -24,7 +23,7 @@ export default function UpdateClass({item, onClose} :any) {
               {/* <!-- Modal header --> */}
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Edit Class
+                    Edit Class <span className="bg-yellow-300 rounded-md p-2">{ dataUpClass.nama }</span>
                   </h3>
                   <button
                     type="submit"
@@ -35,6 +34,7 @@ export default function UpdateClass({item, onClose} :any) {
                   </button>
                 </div>
                 {/* <!-- Modal body --> */}
+                {!!dataUpClass ? (
                 <form>
                   <div className="max-w-sm mx-auto py-5">
                     <div className="mb-4">
@@ -44,7 +44,7 @@ export default function UpdateClass({item, onClose} :any) {
                       <input
                         type="text"
                         id="username"
-                        defaultValue={item.nama}
+                        defaultValue={dataUpClass.nama}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nama"
                         required
@@ -57,7 +57,7 @@ export default function UpdateClass({item, onClose} :any) {
                       <input
                         type="number"
                         id="notab"
-                        defaultValue={item.code}
+                        defaultValue={dataUpClass.code}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nim"
                         required
@@ -71,6 +71,10 @@ export default function UpdateClass({item, onClose} :any) {
                     </button>
                   </div>
                 </form>
+                ) : (
+                  <div className="text-2xl text-red-600 text-bold py-5 px-4 text-center"> error when sending 'dataUpClass' as props </div>
+                )
+              }
             </div>
           </div>
         </div>

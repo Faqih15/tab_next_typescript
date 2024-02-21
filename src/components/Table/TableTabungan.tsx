@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
-import ModalTopUp from "./ModalTopUp";
+import { useEffect, useState } from "react";
 import { KeySantri } from "@/types/santri";
 
 interface IUser {
@@ -29,20 +28,21 @@ export default function TabelTab() {
     const res = await fetch("http://localhost:5000/santri");
     const data = await res.json();
     if (data?.length) setDataTabungan(data);
-  };
-  useEffect(() => {
+    useEffect(() => {
     getTabSantri();
-  }, []);
+    }, []);
+  }
 
-  useEffect(() => {
-    console.log('modal', modal)
-  }, [modal])
+  // useEffect(() => {
+  //   console.log('modal 1', modal)
+  // }, [modal])
   
   // const dataTest = useMemo(() => {
   //   return modal || []
   // }, [modal])
 
   // console.log(dataTest)
+  console.log('modal 2', modal)
 
   return (
     <section className="">
@@ -86,7 +86,7 @@ export default function TabelTab() {
           </tbody>
         </table>
       </div>
-      {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)}/>}
+      {/* {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)}/>} */}
     </section>
   );
 }
