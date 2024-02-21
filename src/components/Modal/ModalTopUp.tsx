@@ -28,7 +28,7 @@ export default function AddSaldo({item, onClose} :any) {
             {/* <!-- Modal header --> */}
               <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Top Up Tabungan of {item?.nama}
+                  Top Up Tabungan of <span className="bg-yellow-300 rounded-md p-2">{item?.nama}</span> 
                 </h3>
                 <button
                   type="submit"

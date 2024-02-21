@@ -1,4 +1,6 @@
-import UpdateSantri from '../Modal/Santri/Update';
+"use client";
+import { useEffect, useState } from 'react';
+import UpdateSantri from '../Modal/Santri/ModalSantriUpd';
 
 type KeyTabSantri = {
   nama: string;
@@ -12,15 +14,15 @@ type KeyTabSantri = {
   no_tabungan: string;
 };
 
-async function getSantri() {
-  const res = await fetch("http://localhost:5000/santri", { cache: 'no-store'});
-  // to get value from localhost:5000 you must run the json-server on terminal with 
-  // npm run server
-  // { cache: 'no-store'} digunakan agar ketika ada perubahan pd db.json tidak perlu fetch lagi
-  return res.json();
-}
+// async function getSantri() {
+//   const res = await fetch("http://localhost:5000/santri", { cache: 'no-store'});
+//   // to get value from localhost:5000 you must run the json-server on terminal with 
+//   // npm run server
+//   // { cache: 'no-store'} digunakan agar ketika ada perubahan pd db.json tidak perlu fetch lagi
+//   return res.json();
+// }
 
-export default async function TableSantri() {
+export default function TableSantri() {
   const headTable = [
     {
       nama: "nama",
@@ -34,7 +36,19 @@ export default async function TableSantri() {
     },
   ];
 
-const testSantri = await getSantri();
+  const [modal, setModal]: any = useState(null);
+  const [santri, setSantri] = useState([]);
+
+  const getAllSantri = async () => {
+    const res = await fetch("http://localhost:5000/santri");
+    const data = await res.json();
+    if (data?.length) setSantri(data);
+  }
+  useEffect(() => {
+    getAllSantri();
+  }, []);
+
+// const testSantri = await getSantri();
 
   return (
     <section className="">
@@ -59,7 +73,7 @@ const testSantri = await getSantri();
             })}
           </thead>
           <tbody className="text-base capitalize">
-            {testSantri.map((santri: KeyTabSantri, index: number) => {
+            {santri.map((santri: KeyTabSantri, index: number) => {
               return (
                 <tr key={index} className="">
                   {/* key must change to id data */}
@@ -77,7 +91,14 @@ const testSantri = await getSantri();
                     >
                       Update
                     </button> */}
-                    <UpdateSantri parameterId={santri.id} />
+                    {/* <UpdateSantri parameterId={santri.id} /> */}
+                    <button
+                      type="button"
+                      className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                      onClick={() => { setModal(santri) }}
+                    >
+                      Update
+                    </button>
                     <button
                       type="button"
                       className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
@@ -91,6 +112,7 @@ const testSantri = await getSantri();
           </tbody>
         </table>
       </div>
+      {!!modal && <UpdateSantri paramUpdate={modal} onClose={()=>setModal(null)}/>}
     </section>
   );
 }

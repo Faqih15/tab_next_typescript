@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
-import UpdateClass from "./ModalUpdateClass";
+import UpdateClass from "@/components/Modal/ModalClassUpdate";
 
 type KeyClass = {
   nama: string;
