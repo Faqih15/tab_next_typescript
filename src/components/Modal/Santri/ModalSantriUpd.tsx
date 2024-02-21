@@ -15,45 +15,12 @@ type KeySantri = {
   id: string;
 };
 
-export default function UpdateSantri({parameterId}) {
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const [dataEdit, setdataEdit] = useState<KeySantri>();
-
-  async function getProfilSantri() {
-    const res = await fetch(`http://localhost:5000/santri/${parameterId}`, { cache: 'no-store'});
-    // alert("hello world !")
-    await console.log("res", res)
-    return res.json();
-    // to get value from localhost:5000 you must run the json-server on terminal with
-    // npm run server
-  }
-
-  const showmodal = async () => {
-    if (isOpen === false) {
-      console.log(isOpen, "isOpen status");
-      const newData = await getProfilSantri();
-      setdataEdit(newData);
-      setOpen(true);
-      console.log("1", dataEdit);
-    } else {
-      console.log("else isOpen");
-      setOpen(false);
-      setdataEdit(undefined);
-      console.log("2", dataEdit);
-    }
-  };
+export default function UpdateSantri({paramUpdate, onClose}: any) {
 
   return (
     <section>
-      <button
-        type="button"
-        className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-        onClick={showmodal}
-      >
-        Update
-      </button>
       {/* <!-- Main modal --> */}
-      <div className={isOpen === false ? "hidden" : "block"}>
+      <div>
         <div
           id="default-modal"
           aria-hidden="true"
@@ -65,20 +32,20 @@ export default function UpdateSantri({parameterId}) {
               {/* <!-- Modal header --> */}
               <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Update Profil of "{dataEdit?.nama}"
+                  Update Profil of <span className="bg-yellow-300 rounded-md p-2">{paramUpdate?.nama} </span>
                 </h3>
                 <button
                   type="submit"
                   className="text-gray-700 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                   data-modal-hide="default-modal"
-                  onClick={showmodal}
+                  onClick={onClose}
                 >
                   <MdClose />
                   <span className="sr-only">Close modal</span>
                 </button>
               </div>
               {/* <!-- Modal body --> */}
-              {!!dataEdit ? (
+              {!!paramUpdate ? (
                 <form>
                   <div className="max-w-sm mx-auto py-5">
                     <div className="mb-3">
@@ -88,7 +55,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="text"
                         id="username"
-                        defaultValue={dataEdit?.nama}
+                        defaultValue={paramUpdate?.nama}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nama"
                         required
@@ -101,7 +68,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="number"
                         id="nim"
-                        defaultValue={dataEdit?.nim}
+                        defaultValue={paramUpdate?.nim}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nim"
                         required
@@ -116,7 +83,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="text"
                         id="class"
-                        defaultValue={dataEdit?.id_kelas}
+                        defaultValue={paramUpdate?.id_kelas}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="kelas"
                       />
@@ -128,7 +95,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="text"
                         id="notab"
-                        defaultValue={dataEdit?.no_tabungan}
+                        defaultValue={paramUpdate?.no_tabungan}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="no tabungan"
                         required
@@ -141,7 +108,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="text"
                         id="ortu"
-                        defaultValue={dataEdit?.orangtua}
+                        defaultValue={paramUpdate?.orangtua}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="nama orangtua"
                         required
@@ -154,7 +121,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="text"
                         id="address"
-                        defaultValue={dataEdit?.alamat}
+                        defaultValue={paramUpdate?.alamat}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="alamat"
                         required
@@ -167,7 +134,7 @@ export default function UpdateSantri({parameterId}) {
                       <input
                         type="number"
                         id="idcard"
-                        defaultValue={dataEdit?.id_card}
+                        defaultValue={paramUpdate?.id_card}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="id card"
                       />

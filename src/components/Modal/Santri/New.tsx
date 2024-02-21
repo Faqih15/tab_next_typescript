@@ -25,7 +25,7 @@ export default function NewSantri() {
     id_card: "",
   });
 
-  const showmodal = () => {
+  const showmodal = (e: any) => {
     if (isOpen === false) {
       console.log(isOpen, "isOpen status");
       setOpen(true);
@@ -33,6 +33,7 @@ export default function NewSantri() {
       console.log("else isOpen");
       setOpen(false);
     }
+    // e.target.reset();
   };
 
   const inputForm = (e: any) => {
@@ -40,6 +41,19 @@ export default function NewSantri() {
     console.log("dataInput", dataInput);
     console.log("e.target.id", e.target.id);
   };
+
+  const clearState = () => {
+    setDataInput(
+      { 
+        nama: "",
+        nim: "",
+        orangtua: "",
+        id_kelas: "",
+        password: "",
+        id_card: "",
+      }
+      )
+    }
 
   const sendFormData = (e: any) => {
     e.preventDefault();
