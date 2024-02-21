@@ -42,7 +42,7 @@ export default function NewClass() {
                     Add New Class
                   </h3>
                   <button
-                    type="submit"
+                    type="button"
                     className="text-gray-700 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                     data-modal-hide="default-modal"
                     onClick={showmodal}>

@@ -26,7 +26,7 @@ export default function UpdateClass({dataUpClass, onClose} :any) {
                     Edit Class <span className="bg-yellow-300 rounded-md p-2">{ dataUpClass.nama }</span>
                   </h3>
                   <button
-                    type="submit"
+                    type="button"
                     className="text-gray-700 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                     onClick={onClose}>
                     <MdClose />
