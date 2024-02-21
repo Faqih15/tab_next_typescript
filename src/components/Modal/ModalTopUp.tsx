@@ -14,7 +14,7 @@ type KeySantri = {
 };
 
 export default function AddSaldo({item, onClose} :any) {
-  console.log(item)
+  console.log('ModalTopUp item',item)
   return (
     <section>
       <div
@@ -112,7 +112,7 @@ export default function AddSaldo({item, onClose} :any) {
                   </div>
                 </form>
               ) : (
-                <div className="text-2xl text-red-600 text-bold py-5 px-4 text-center">error item undefined</div>
+                <div className="text-2xl text-red-600 text-bold py-5 px-4 text-center"> error when sending 'item' as props </div>
               )}
           </div>
         </div>

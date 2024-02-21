@@ -1,4 +1,4 @@
-import UpdateSantri from './../Modal/Santri/Update';
+import UpdateSantri from '../Modal/Santri/Update';
 
 type KeyTabSantri = {
   nama: string;
@@ -19,7 +19,8 @@ async function getSantri() {
   // { cache: 'no-store'} digunakan agar ketika ada perubahan pd db.json tidak perlu fetch lagi
   return res.json();
 }
-export default async function SantriTable() {
+
+export default async function TableSantri() {
   const headTable = [
     {
       nama: "nama",
