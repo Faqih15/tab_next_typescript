@@ -35,7 +35,7 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
                   Update Profil of <span className="bg-yellow-300 rounded-md p-2">{paramUpdate?.nama} </span>
                 </h3>
                 <button
-                  type="submit"
+                  type="button"
                   className="text-gray-700 bg-transparent hover:bg-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                   data-modal-hide="default-modal"
                   onClick={onClose}
@@ -48,7 +48,7 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
               {!!paramUpdate ? (
                 <form>
                   <div className="max-w-sm mx-auto py-5">
-                    <div className="mb-3">
+                    <div className="mb-3 form-control">
                       <label className="block text-base font-medium text-gray-900">
                         Your Name
                       </label>
@@ -86,6 +86,7 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
                         defaultValue={paramUpdate?.id_kelas}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="kelas"
+                        required
                       />
                     </div>
                     <div className="mb-3">
@@ -137,6 +138,7 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
                         defaultValue={paramUpdate?.id_card}
                         className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                         placeholder="id card"
+                        required
                       />
                     </div>
                     <button
