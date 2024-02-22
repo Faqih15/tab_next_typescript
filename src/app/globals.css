@@ -42,11 +42,18 @@ input::-webkit-inner-spin-button {
   animation: slideUp 300ms ease-out;
 }
 
-/* input:required {
-  box-shadow: 20px 20px 50px 15px #F53030;
-} */
-
-.form-control:after {
+/* form check * required */
+input[required] + label:after {
   content: "*";
   color: red;
 }
+/* div.form-req {
+  display: flex;
+  flex-direction: column-reverse;
+} */
+/* div input {
+  order: 2;
+}
+div label {
+  order: 1;
+} */
