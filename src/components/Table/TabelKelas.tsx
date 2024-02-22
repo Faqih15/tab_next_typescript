@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import UpdateClass from "@/components/Modal/ModalClassUpdate";
 
@@ -9,12 +9,7 @@ type KeyClass = {
 };
 
 export default function TabelKelas() {
-  const headClass = [
-    {
-      nama: "nama",
-      code: "kode kelas",
-    }
-  ]
+  const headClass = [ { nama: "nama", code: "kode kelas", } ]
 
   const [modal, setModal]: any = useState(null);
   const [dataClass, setDataClass] = useState([]);

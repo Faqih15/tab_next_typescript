@@ -24,7 +24,7 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
         <div
           id="default-modal"
           aria-hidden="true"
-          className="overflow-y-auto overflow-x-hidden fixed inset-x-0 top-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-gray-700/75"
+          className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-gray-700/75"
         >
           <div className="relative p-4 w-full max-w-2xl max-h-full">
             {/* <!-- Modal content --> */}
@@ -48,98 +48,98 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
               {!!paramUpdate ? (
                 <form>
                   <div className="max-w-sm mx-auto py-5">
-                    <div className="mb-3 form-control">
-                      <label className="block text-base font-medium text-gray-900">
-                        Your Name
-                      </label>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="text"
                         id="username"
                         defaultValue={paramUpdate?.nama}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="nama"
                         required
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-base font-medium text-gray-900">
-                        NIM
+                      <label className="text-base font-medium text-gray-900">
+                        Your Name
                       </label>
+                    </div>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="number"
                         id="nim"
                         defaultValue={paramUpdate?.nim}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="nim"
                         required
                         min="10001"
                         max="99999"
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-base font-medium text-gray-900">
-                        Kelas
+                      <label className="text-base font-medium text-gray-900">
+                        NIM
                       </label>
+                    </div>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="text"
                         id="class"
                         defaultValue={paramUpdate?.id_kelas}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="kelas"
                         required
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-base font-medium text-gray-900">
-                        No Tabungan
+                      <label className="text-base font-medium text-gray-900">
+                        Kelas
                       </label>
+                    </div>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="text"
                         id="notab"
                         defaultValue={paramUpdate?.no_tabungan}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="no tabungan"
                         required
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-base font-medium text-gray-900">
-                        Nama Orangtua
+                      <label className="text-base font-medium text-gray-900">
+                        No Tabungan
                       </label>
+                    </div>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="text"
                         id="ortu"
                         defaultValue={paramUpdate?.orangtua}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="nama orangtua"
                         required
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-base font-medium text-gray-900">
-                        Alamat
+                      <label className="text-base font-medium text-gray-900">
+                        Nama Orangtua
                       </label>
+                    </div>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="text"
                         id="address"
                         defaultValue={paramUpdate?.alamat}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="alamat"
                         required
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-base font-medium text-gray-900">
-                        ID Card
+                      <label className="text-base font-medium text-gray-900">
+                        Alamat
                       </label>
+                    </div>
+                    <div className="mb-3 flex flex-col-reverse">
                       <input
                         type="number"
                         id="idcard"
                         defaultValue={paramUpdate?.id_card}
-                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                        className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                         placeholder="id card"
                         required
                       />
+                      <label className="text-base font-medium text-gray-900">
+                        ID Card
+                      </label>
                     </div>
                     <button
                       type="submit"

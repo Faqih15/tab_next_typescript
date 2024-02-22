@@ -1,6 +1,6 @@
 import TableSantri from '../../components/Table/TableSantri';
 import AsideAndTop from '../../components/Layouts/Aside';
-import NewSantri from './../../components/Modal/Santri/New';
+import NewSantri from '../../components/Modal/Santri/ModalSantriNew';
 
 export default function Dashboard() {
   return(

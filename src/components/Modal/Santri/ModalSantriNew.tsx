@@ -87,7 +87,7 @@ export default function NewSantri() {
       <button
         data-modal-target="default-modal"
         data-modal-toggle="default-modal"
-        className="bg-blue-600 hover:bg-blue-700  block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center"
+        className="bg-blue-600 hover:bg-blue-700  text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center"
         type="button"
         onClick={showmodal}
       >
@@ -122,27 +122,27 @@ export default function NewSantri() {
                 {/* <!-- Modal body --> */}
                 <div className="max-w-sm mx-auto py-5">
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       Your Name
                     </label>
                     <input
                       onChange={inputForm}
                       type="text"
                       id="nama"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="nama"
                       required
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       NIM
                     </label>
                     <input
                       onChange={inputForm}
                       type="number"
                       id="nim"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="nim"
                       required
                       min="10001"
@@ -150,65 +150,65 @@ export default function NewSantri() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       Kelas
                     </label>
                     <input
                       onChange={inputForm}
                       type="number"
                       id="id_kelas"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="kelas"
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       No Tabungan
                     </label>
                     <input
                       onChange={inputForm}
                       type="text"
                       id="no_tabungan"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="no tabungan"
                       required
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       Nama Orangtua
                     </label>
                     <input
                       onChange={inputForm}
                       type="text"
                       id="orangtua"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="nama orangtua"
                       required
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       Alamat
                     </label>
                     <input
                       onChange={inputForm}
                       type="text"
                       id="alamat"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="alamat"
                       required
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="block text-base font-medium text-gray-900">
+                    <label className="text-base font-medium text-gray-900">
                       ID Card
                     </label>
                     <input
                       onChange={inputForm}
                       type="number"
                       id="id_card"
-                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                      className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="id card"
                     />
                   </div>
