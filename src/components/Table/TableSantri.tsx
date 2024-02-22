@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import UpdateSantri from '../Modal/Santri/ModalSantriUpd';
+import DeleteSantri from '../Modal/Santri/ModalSantriDelete';
 
 type KeyTabSantri = {
   nama: string;
@@ -13,14 +14,6 @@ type KeyTabSantri = {
   id: string;
   no_tabungan: string;
 };
-
-// async function getSantri() {
-//   const res = await fetch("http://localhost:5000/santri", { cache: 'no-store'});
-//   // to get value from localhost:5000 you must run the json-server on terminal with 
-//   // npm run server
-//   // { cache: 'no-store'} digunakan agar ketika ada perubahan pd db.json tidak perlu fetch lagi
-//   return res.json();
-// }
 
 export default function TableSantri() {
   const headTable = [
@@ -37,6 +30,7 @@ export default function TableSantri() {
   ];
 
   const [modal, setModal]: any = useState(null);
+  const [modalDelete, setDelete]: any = useState(null);
   const [santri, setSantri] = useState([]);
 
   const getAllSantri = async () => {
@@ -54,7 +48,7 @@ export default function TableSantri() {
     <section className="">
       <div className="relative overflow-x-auto">
         <table className="w-full text-left rtl:text-right text-gray-500">
-          <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-50">
+          <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100">
             {headTable.map((headTable, index) => {
               return (
                 <tr key={index} className="">
@@ -85,13 +79,6 @@ export default function TableSantri() {
                   <td className="px-5">{santri.id_card}</td>
                   <td className="px-5">{santri.saldo}</td>
                   <td className="px-5 flex justify-start items-center gap-2">
-                    {/* <button
-                      type="button"
-                      className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-                    >
-                      Update
-                    </button> */}
-                    {/* <UpdateSantri parameterId={santri.id} /> */}
                     <button
                       type="button"
                       className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
@@ -102,6 +89,7 @@ export default function TableSantri() {
                     <button
                       type="button"
                       className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
+                      onClick={() => { setDelete(santri) }}
                     >
                       Delete
                     </button>
@@ -113,6 +101,7 @@ export default function TableSantri() {
         </table>
       </div>
       {!!modal && <UpdateSantri paramUpdate={modal} onClose={()=>setModal(null)}/>}
+      {!!modalDelete && <DeleteSantri paramDelete={modalDelete} onClose={()=>setDelete(null)}/>}
     </section>
   );
 }

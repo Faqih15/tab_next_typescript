@@ -45,7 +45,7 @@ export default function AsideAndTop({ children }: any) {
         data-drawer-toggle="default-sidebar"
         aria-controls="default-sidebar"
         type="button"
-        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
       >
         <span className="sr-only">Open sidebar</span>
         {/* <svg
@@ -69,11 +69,11 @@ export default function AsideAndTop({ children }: any) {
         // className="fixed top-0 left-0 z-40 w-1/4 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-100">
           <span>
             <a
               href="#"
-              className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
             >
               <span className="ms-3 text-2xl font-bold">Dashboard</span>
             </a>
@@ -82,7 +82,7 @@ export default function AsideAndTop({ children }: any) {
             <li>
               <a
                 href="/dashboard"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
               >
                 <MdOutlineDashboard className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black" />
                 <span className="ms-3 text-lg font-semibold">Dashboard 123</span>
@@ -92,7 +92,7 @@ export default function AsideAndTop({ children }: any) {
               <button
                 type="button"
                 onClick={showMenu}
-                className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
+                className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-200"
                 aria-controls="dropdown-example"
                 data-collapse-toggle="dropdown-example"
               >
@@ -111,7 +111,7 @@ export default function AsideAndTop({ children }: any) {
                   <li>
                     <a
                       href="/dashboard"
-                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-200"
                     >
                       <LuUsers className="w-6 h-6 text-base text-gray-500 transition duration-75 group-hover:text-black" />
                       Santri
@@ -120,7 +120,7 @@ export default function AsideAndTop({ children }: any) {
                   <li>
                     <a
                       href="/dashboard/kelas"
-                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-200"
                     >
                       <VscSymbolClass className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
                       Kelas
@@ -129,7 +129,7 @@ export default function AsideAndTop({ children }: any) {
                   <li>
                     <a
                       href="/dashboard/tabungan"
-                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                      className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-200"
                     >
                       <MdAttachMoney className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
                       Tabungan
@@ -143,7 +143,7 @@ export default function AsideAndTop({ children }: any) {
                 <Collapsible.Trigger asChild>
                   <button
                     type="button"
-                    className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
+                    className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-200"
                     aria-controls="dropdown-example"
                     data-collapse-toggle="dropdown-example"
                   >
@@ -163,7 +163,7 @@ export default function AsideAndTop({ children }: any) {
                     <li>
                       <a
                         href="/dashboard"
-                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-200"
                       >
                         <LuUsers className="w-6 h-6 text-base text-gray-500 transition duration-75 group-hover:text-black" />
                         Santri
@@ -172,7 +172,7 @@ export default function AsideAndTop({ children }: any) {
                     <li>
                       <a
                         href="/dashboard/kelas"
-                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-200"
                       >
                         <VscSymbolClass className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
                         Kelas
@@ -181,7 +181,7 @@ export default function AsideAndTop({ children }: any) {
                     <li>
                       <a
                         href="/dashboard/tabungan"
-                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"
+                        className="flex items-center w-full p-2 gap-3 font-semibold text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-200"
                       >
                         <MdAttachMoney className="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-black" />
                         Tabungan
@@ -192,7 +192,7 @@ export default function AsideAndTop({ children }: any) {
               </Collapsible.Root>
             </li>
             {/* <li>
-							<a href="/auth" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+							<a href="/auth" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group">
 								<MdLogout className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black"/>
 								<span className="flex-1 ms-3 whitespace-nowrap  ">Sign Out</span>
 							</a>
@@ -203,7 +203,7 @@ export default function AsideAndTop({ children }: any) {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
               >
                 <AiOutlineTransaction className="w-8 h-8 text-gray-500 transition duration-75 group-hover:text-black" />
                 <span className="flex-1 ms-3 text-lg font-semibold whitespace-nowrap">Payment Page</span>
@@ -215,7 +215,7 @@ export default function AsideAndTop({ children }: any) {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
               >
                 <TbMailbox />
                 <span className="flex-1 ms-3 whitespace-nowrap">Inbox</span>
@@ -227,7 +227,7 @@ export default function AsideAndTop({ children }: any) {
             {/* <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
               >
                 <PiUsersFill />
                 <span className="flex-1 ms-3 whitespace-nowrap">Users</span>
@@ -236,7 +236,7 @@ export default function AsideAndTop({ children }: any) {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
               >
                 <MdShoppingBag />
                 <span className="flex-1 ms-3 whitespace-nowrap">Products</span>
@@ -245,7 +245,7 @@ export default function AsideAndTop({ children }: any) {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-200 group"
               >
                 <PiNotePencilBold />
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
@@ -276,7 +276,7 @@ export default function AsideAndTop({ children }: any) {
           </div>
         </div>
           {children}
-        <footer className="bg-blue-200">
+        <footer className="">
           <div className="mx-auto w-full max-w-screen-xl py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">

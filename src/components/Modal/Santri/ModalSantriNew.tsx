@@ -98,7 +98,7 @@ export default function NewSantri() {
         <div
           id="default-modal"
           aria-hidden="true"
-          className="overflow-y-auto overflow-x-hidden fixed inset-x-0 top-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-gray-700/75"
+          className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full max-h-full bg-gray-700/75"
         >
           <div className="relative p-4 w-full max-w-2xl max-h-full">
             {/* <!-- Modal content --> */}
