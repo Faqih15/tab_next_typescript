@@ -32,15 +32,21 @@ export default function TableSantri() {
   const [modal, setModal]: any = useState(null);
   const [modalDelete, setDelete]: any = useState(null);
   const [santri, setSantri] = useState([]);
+  const [data, setData] = useState([]);
 
   const getAllSantri = async () => {
     const res = await fetch("http://localhost:5000/santri");
+    // console.log("res", res)
     const data = await res.json();
-    if (data?.length) setSantri(data);
+    if (data?.length) {setSantri(data)};
+    // if (res) {setSantri(res)};
   }
   useEffect(() => {
     getAllSantri();
   }, []);
+
+  // console.log('santri', santri)
+  // console.log('data data', data)
 
 // const testSantri = await getSantri();
 

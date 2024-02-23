@@ -47,13 +47,3 @@ input[required] + label:after {
   content: "*";
   color: red;
 }
-/* div.form-req {
-  display: flex;
-  flex-direction: column-reverse;
-} */
-/* div input {
-  order: 2;
-}
-div label {
-  order: 1;
-} */

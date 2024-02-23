@@ -24,15 +24,21 @@ export default function TabelTab() {
   const [dataTabungan, setDataTabungan] = useState([]);
 
   console.log('check 1', dataTabungan)
-  console.log('check 2', dataTabungan?.length)
+  // console.log('check 2', dataTabungan?.length)
 
-  const getTabSantri = async () => {
-    const res = await fetch("http://localhost:5000/santri");
-    const data = await res.json();
-    if (data?.length) setDataTabungan(data);
-  }
+  
   useEffect(() => {
+    const getTabSantri = async () => {
+      const res = await fetch("http://localhost:5000/santri");
+      const data = await res.json();
+      if (data?.length) setDataTabungan(data);
+    }
     getTabSantri();
+    // (async () => {
+    //   const res = await fetch("http://localhost:5000/santri");
+    //   const data = await res.json();
+    //   if (data?.length) setDataTabungan(data);
+    // })()
   }, []);
 
   // useEffect(() => {
