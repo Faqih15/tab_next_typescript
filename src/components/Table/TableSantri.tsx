@@ -54,7 +54,7 @@ export default function TableSantri() {
     <section className="">
       <div className="relative overflow-x-auto">
         <table className="w-full text-left rtl:text-right text-gray-500">
-          <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100">
+          <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100 mb-4">
             {headTable.map((headTable, index) => {
               return (
                 <tr key={index} className="">
@@ -64,7 +64,7 @@ export default function TableSantri() {
                   <td className="px-6 py-2">{headTable.orangtua}</td>
                   <td className="px-6 py-2">{headTable.alamat}</td>
                   <td className="px-6 py-2">{headTable.id_card}</td>
-                  <td className="px-6 py-2">{headTable.saldo}</td>
+                  {/* <td className="px-6 py-2">{headTable.saldo}</td> */}
                   <td className="px-6 py-2 flex justify-center items-center">
                     {headTable.action}
                   </td>
@@ -83,7 +83,7 @@ export default function TableSantri() {
                   <td className="px-5">{santri.orangtua}</td>
                   <td className="px-5">{santri.alamat}</td>
                   <td className="px-5">{santri.id_card}</td>
-                  <td className="px-5">{santri.saldo}</td>
+                  {/* <td className="px-5">{santri.saldo}</td> */}
                   <td className="px-5 flex justify-start items-center gap-2">
                     <button
                       type="button"

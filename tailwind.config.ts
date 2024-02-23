@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         'tab-white': '#ffffff',
         'tab-color': {
-          1: '#a3e635',
+          1: '#BFFF49',
           2: '#67e8f9',
         },
       },

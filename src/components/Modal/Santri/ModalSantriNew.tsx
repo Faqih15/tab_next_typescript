@@ -5,24 +5,26 @@ import { MdClose } from "react-icons/md";
 type KeyTabSantri = {
   nama: string;
   nim: number;
-  orangtua: string;
   id_kelas: number;
+  no_tabungan: string;
+  orangtua: string;
   alamat: string;
   id_card: number;
   saldo: number;
-  no_tabungan: string;
 };
 
 export default function NewSantri() {
   // const [first, setfirst] = useState<string>();
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [dataInput, setDataInput] = useState({
-    nama: "",
-    nim: "",
-    orangtua: "",
-    id_kelas: "",
-    password: "",
-    id_card: "",
+  const [dataInput, setDataInput] = useState<KeyTabSantri>({
+    nama: '',
+    nim: 0,
+    id_kelas: 0,
+    no_tabungan: '',
+    orangtua: '',
+    alamat: '',
+    id_card: 0,
+    saldo: 0,
   });
 
   const showmodal = (e: any) => {
@@ -42,41 +44,30 @@ export default function NewSantri() {
     console.log("e.target.id", e.target.id);
   };
 
-  const clearState = () => {
-    setDataInput(
-      { 
-        nama: "",
-        nim: "",
-        orangtua: "",
-        id_kelas: "",
-        password: "",
-        id_card: "",
-      }
-      )
-    }
-
   const sendFormData = (e: any) => {
-    e.preventDefault();
-    // const newsantri = async () => {
-    //   const data = {
-    //     nama: dataInput.nama,
-    //     nim: dataInput.nim,
-    //     orangtua: dataInput.orangtua,
-    //     id_kelas: dataInput.id_kelas,
-    //     password: dataInput.password,
-    //     id_card: dataInput.id_card,
-    //   };
-    //   const response = await fetch("/api/santri/new-api", {
-    //     method: "POST",
-    //     body: JSON.stringify(data),
-    //   });
-    //   console.log(data, "data 115");
-    //   return response.json();
-    // };
-    // newsantri().then((data) => {
-    //   console.log(data, "data.message");
-    //   alert(data.message);
-    // });
+    // e.preventDefault();
+    const newsantri = async () => {
+      const sendData = {
+        nama: dataInput.nama,
+        nim: dataInput.nim,
+        id_kelas: dataInput.id_kelas,
+        no_tabungan: dataInput.no_tabungan,
+        orangtua: dataInput.orangtua,
+        alamat: dataInput.alamat,
+        id_card: dataInput.id_card,
+        saldo: dataInput.saldo,
+      };
+      const response = await fetch("http://localhost:5000/santri", {
+        method: "POST",
+        body: JSON.stringify(sendData),
+      });
+      console.log(sendData, "data 68");
+      return response.json();
+    };
+    newsantri().then((data) => {
+      console.log(data, "data.message");
+      // alert(data.message);
+    });
     e.target.reset();
     setOpen(false);
   };

@@ -69,7 +69,7 @@ export default function AsideAndTop({ children }: any) {
         // className="fixed top-0 left-0 z-40 w-1/4 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-100">
+        <div className="h-full px-3 py-4 overflow-y-auto bg-white border-4 border-tab-color-1">
           <span>
             <a
               href="#"
@@ -152,9 +152,9 @@ export default function AsideAndTop({ children }: any) {
                       Table of Data
                     </span>
                     {!open ? (
-                      <MdKeyboardArrowRight className="w-7 h-7 text-gray-500 transition duration-75 group-hover:text-blue-500" />
+                      <MdKeyboardArrowRight className="w-7 h-7 text-gray-500 transition duration-75 group-hover:text-tab-color-1" />
                     ) : (
-                      <MdKeyboardArrowDown className="w-7 h-7 text-blue-500 transition duration-75" />
+                      <MdKeyboardArrowDown className="w-7 h-7 text-tab-color-1 transition duration-75" border />
                     )}
                   </button>
                 </Collapsible.Trigger>
@@ -258,17 +258,17 @@ export default function AsideAndTop({ children }: any) {
       <div className="p-4 sm:ml-72">
         <div className="p-4 mt-2 mb-5 border-2 border-gray-200 border-dashed rounded-lg">
           <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="flex items-center justify-center h-24 rounded bg-gray-50">
+            <div className="flex items-center justify-center h-24 rounded bg-gray-100">
               <p className="text-2xl text-gray-400 ">
                 <LuListPlus />
               </p>
             </div>
-            <div className="flex items-center justify-center h-24 rounded bg-gray-50">
+            <div className="flex items-center justify-center h-24 rounded bg-gray-100">
               <p className="text-2xl text-gray-400 ">
                 <LuListPlus />
               </p>
             </div>
-            <div className="flex items-center justify-center h-24 rounded bg-gray-50">
+            <div className="flex items-center justify-center h-24 rounded bg-gray-100">
               <p className="text-2xl text-gray-400 ">
                 <LuListPlus />
               </p>
@@ -359,7 +359,7 @@ export default function AsideAndTop({ children }: any) {
                 </div>
               </div>
             </div>
-            <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <hr className="my-6 border-tab-color-1 sm:mx-auto lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
               <span className="text-sm text-gray-500 sm:text-center">
                 © 2024{" "}
