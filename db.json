@@ -164,6 +164,17 @@
       "saldo": 0,
       "no_tabungan": "ST-02-173-03",
       "id": "d522"
+    },
+    {
+      "id": "66ab",
+      "nama": "kimcil hokya",
+      "nim": "27190",
+      "id_kelas": "36",
+      "no_tabungan": "Voluptate a maxime e",
+      "orangtua": "Rem aspernatur dolor",
+      "alamat": "Porro et eaque illum",
+      "id_card": "24",
+      "saldo": 0
     }
   ],
   "listclass": [
