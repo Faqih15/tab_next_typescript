@@ -52,7 +52,7 @@ export default function TabelTab() {
   return (
     <section className="">
       <div className="relative overflow-x-auto">
-        <table className="w-full text-left rtl:text-right text-gray-500">
+        <table className="w-full text-left rtl:text-right">
           <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100">
             {headClass.map((itemHead, index) => {
               return (
@@ -66,7 +66,7 @@ export default function TabelTab() {
               );
             })}
           </thead>
-          <tbody className="text-base capitalize">
+          <tbody className="text-base capitalize text-gray-800">
             {!!dataTabungan?.length &&
               dataTabungan.map((tabItem: KeySantri, index: number) => {
                 return (

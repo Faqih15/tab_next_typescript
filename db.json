@@ -1,61 +1,6 @@
 {
   "santri": [
     {
-      "nama": "Json Rina Fitria 6",
-      "nim": "33010",
-      "orangtua": "Irfan",
-      "id_kelas": 1,
-      "alamat": "Palembang",
-      "id_card": 3301033010,
-      "saldo": 0,
-      "no_tabungan": "ST-02-173-03",
-      "id": "532e"
-    },
-    {
-      "nama": "Json Rina Fitria 7",
-      "nim": "33010",
-      "orangtua": "Irfan",
-      "id_kelas": 1,
-      "alamat": "Palembang",
-      "id_card": 3301033010,
-      "saldo": 0,
-      "no_tabungan": "ST-02-173-03",
-      "id": "96e4"
-    },
-    {
-      "nama": "Json Rina Fitria 8",
-      "nim": "33010",
-      "orangtua": "Irfan",
-      "id_kelas": 1,
-      "alamat": "Palembang",
-      "id_card": 3301033010,
-      "saldo": 0,
-      "no_tabungan": "ST-02-173-03",
-      "id": "39b4"
-    },
-    {
-      "nama": "Json Rina Fitria 9",
-      "nim": "33010",
-      "orangtua": "Irfan",
-      "id_kelas": 1,
-      "alamat": "Palembang",
-      "id_card": 3301033010,
-      "saldo": 0,
-      "no_tabungan": "ST-02-173-03",
-      "id": "4818"
-    },
-    {
-      "nama": "Json Rina Fitria 10",
-      "nim": "33010",
-      "orangtua": "Irfan",
-      "id_kelas": 1,
-      "alamat": "Palembang",
-      "id_card": 3301033010,
-      "saldo": 0,
-      "no_tabungan": "ST-02-173-03",
-      "id": "1546"
-    },
-    {
       "nama": "Json Syafii Maarif",
       "nim": "33001",
       "orangtua": "Basuki",

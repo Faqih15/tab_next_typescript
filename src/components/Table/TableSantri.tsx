@@ -43,17 +43,14 @@ export default function TableSantri() {
   }
   useEffect(() => {
     getAllSantri();
-  }, []);
-
+    console.log('useEffect TabelSantri.tsx')
+  }, [modalDelete]);
   // console.log('santri', santri)
   // console.log('data data', data)
-
-// const testSantri = await getSantri();
-
   return (
     <section className="">
       <div className="relative overflow-x-auto">
-        <table className="w-full text-left rtl:text-right text-gray-500">
+        <table className="w-full text-left rtl:text-right">
           <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100 mb-4">
             {headTable.map((headTable, index) => {
               return (
@@ -72,18 +69,13 @@ export default function TableSantri() {
               );
             })}
           </thead>
-          <tbody className="text-base capitalize">
+          <tbody className="text-base capitalize text-gray-800">
             {santri.map((santri: KeyTabSantri, index: number) => {
               return (
                 <tr key={index} className="">
                   {/* key must change to id data */}
                   <td className="px-5">{santri.nama}</td>
                   <td className="px-5">{santri.nim}</td>
-                  <td className="px-5">{santri.id_kelas}</td>
-                  <td className="px-5">{santri.orangtua}</td>
-                  <td className="px-5">{santri.alamat}</td>
-                  <td className="px-5">{santri.id_card}</td>
-                  {/* <td className="px-5">{santri.saldo}</td> */}
                   <td className="px-5 flex justify-start items-center gap-2">
                     <button
                       type="button"
@@ -100,6 +92,11 @@ export default function TableSantri() {
                       Delete
                     </button>
                   </td>
+                  <td className="px-5">{santri.id_kelas}</td>
+                  <td className="px-5">{santri.orangtua}</td>
+                  <td className="px-5">{santri.alamat}</td>
+                  <td className="px-5">{santri.id_card}</td>
+                  {/* <td className="px-5">{santri.saldo}</td> */}
                 </tr>
               );
             })}

@@ -28,7 +28,7 @@ export default function TabelKelas() {
   return (
     <section className="">
       <div className="relative overflow-x-auto">
-        <table className="w-full text-left rtl:text-right text-gray-500">
+        <table className="w-full text-left rtl:text-right">
           <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100">
               {headClass.map((itemHead, index) => {
                 return (
@@ -40,7 +40,7 @@ export default function TabelKelas() {
                 )
               })}
           </thead>
-          <tbody className="text-base capitalize">
+          <tbody className="text-base capitalize  text-gray-800">
               {dataClass.map((itemClass: KeyClass, index: number) => {
                 return (
                   <tr key={index} className="">

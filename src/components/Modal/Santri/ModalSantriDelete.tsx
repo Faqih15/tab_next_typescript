@@ -36,8 +36,7 @@ type KeySantri = {
 // }
 
 export default function DeleteSantri({paramDelete, onClose} :any) {
-  // console.log('ModalDelete item', paramDelete)
-  // const id = paramDelete.id;
+  // console.log('ModalDelete item', paramDelete) // const id = paramDelete.id;
   const handleDelete = async () => {
     const id1 = paramDelete.id;
     try {
@@ -47,11 +46,9 @@ export default function DeleteSantri({paramDelete, onClose} :any) {
           method: 'DELETE',
         });
         console.log('id2', id2, 'id1', id1)
-    
         if (!response.ok) {
           throw new Error('Failed to delete data line 53');
         }
-    
         // const data = await response.json();
         // return data; // Returning any response data if needed
       } catch (error) {
