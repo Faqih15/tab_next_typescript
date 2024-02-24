@@ -2,15 +2,51 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
+type KeyClass = {
+  nama: string;
+  code: string;
+};
+
 export default function NewClass() {
   // const [first, setfirst] = useState<string>();
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [dataInput, setDataInput] = useState<KeyClass>({
+    nama: '',
+    code: '',
+  });
+
+  const onInput = (e: any) => {
+    setDataInput({ ...dataInput, [e.target.id]: e.target.value });
+    console.log("dataInput", dataInput);
+    // console.log("e.target.id", e.target.id);
+  };
+
+  const sendFormData = (e: any) => {
+    e.preventDefault();
+    const newClass = async () => {
+      const sendData = {
+        nama: dataInput.nama,
+        code: dataInput.code,
+      };
+      const response = await fetch("http://localhost:5000/listclass", {
+        method: "POST",
+        body: JSON.stringify(sendData),
+      });
+      // console.log(sendData, "data 68");
+      return response.json();
+    };
+    newClass().then((data) => {
+      console.log(data, "data.message");
+      // alert(data.message);
+    });
+    e.target.reset();
+    setOpen(false);
+  };
+
   const showmodal = () => {
     if (isOpen === false) {
-      console.log(isOpen, "isOpen status");
       setOpen(true);
     } else {
-      console.log("else isOpen");
       setOpen(false);
     }
   };
@@ -35,7 +71,7 @@ export default function NewClass() {
             {/* <!-- Modal content --> */}
             <div className="relative bg-white rounded-lg border border-blue-400 shadow">
               {/* <!-- Modal header --> */}
-              <form>
+              <form autoComplete="off" onSubmit={sendFormData}>
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
                     {" "}
@@ -57,10 +93,11 @@ export default function NewClass() {
                       New Class
                     </label>
                     <input
+                      onChange={onInput}
                       type="text"
-                      id="username"
+                      id="nama"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                      placeholder="nama"
+                      placeholder="nama kelas"
                       required
                     />
                   </div>
@@ -69,7 +106,8 @@ export default function NewClass() {
                       Code
                     </label>
                     <input
-                      type="number"
+                      onChange={onInput}
+                      type="text"
                       id="code"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                       placeholder="nim"

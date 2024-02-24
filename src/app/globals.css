@@ -22,7 +22,6 @@ input::-webkit-inner-spin-button {
     height: var(--radix-collapsible-content-height);
   }
 }
-
 @keyframes slideUp {
   from {
     height: var(--radix-collapsible-content-height);
@@ -31,7 +30,6 @@ input::-webkit-inner-spin-button {
     height: 0;
   }
 }
-
 .CollapsibleContent {
   overflow: hidden;
 }
@@ -40,6 +38,32 @@ input::-webkit-inner-spin-button {
 }
 .CollapsibleContent[data-state='closed'] {
   animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideRight {
+  from {
+    width: 20;
+  }
+  to {
+    width: var(--radix-collapsible-content-width);
+  }
+}
+@keyframes slideLeft {
+  from {
+    width: var(--radix-collapsible-content-width);
+  }
+  to {
+    width: 20;
+  }
+}
+.CollapsibleHorizontal-AllSidebar {
+  overflow: hidden;
+}
+.CollapsibleHorizontal-AllSidebar[data-state='open'] {
+  animation: slideRight 300ms ease-out;
+}
+.CollapsibleHorizontal-AllSidebar[data-state='closed'] {
+  animation: slideLeft 300ms ease-out;
 }
 
 /* form check * required */

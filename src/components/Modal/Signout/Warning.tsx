@@ -51,7 +51,7 @@ export default function WarningSignout() {
             {/* <!-- Modal content --> */}
             <div className="relative bg-white rounded-lg border border-blue-400 shadow">
               {/* <!-- Modal header --> */}
-              <form>
+              <form autoComplete="off">
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-red-500">
                     Are You Sure to Sign Out?

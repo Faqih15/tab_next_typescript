@@ -41,7 +41,7 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
               </div>
               {/* <!-- Modal body --> */}
               {!!paramUpdate ? (
-                <form>
+                <form autoComplete="off">
                   <div className="max-w-sm mx-auto py-5">
                     <div className="mb-3 flex flex-col-reverse">
                       <input

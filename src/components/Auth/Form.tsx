@@ -26,7 +26,7 @@ export default function FormLogin() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Sign In
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form autoComplete="off" className="space-y-4 md:space-y-6" action="#">
               <div>
                 <label className="block mb-2 text-base font-medium text-gray-900">
                   User/Email

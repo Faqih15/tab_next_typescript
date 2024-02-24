@@ -29,23 +29,21 @@ export default function NewSantri() {
 
   const showmodal = (e: any) => {
     if (isOpen === false) {
-      console.log(isOpen, "isOpen status");
       setOpen(true);
     } else {
-      console.log("else isOpen");
       setOpen(false);
     }
-    // e.target.reset();
+    e.target.reset();
   };
 
-  const inputForm = (e: any) => {
+  const onInput = (e: any) => {
     setDataInput({ ...dataInput, [e.target.id]: e.target.value });
     console.log("dataInput", dataInput);
-    console.log("e.target.id", e.target.id);
+    // console.log("e.target.id", e.target.id);
   };
 
   const sendFormData = (e: any) => {
-    // e.preventDefault();
+    e.preventDefault();
     const newsantri = async () => {
       const sendData = {
         nama: dataInput.nama,
@@ -61,7 +59,7 @@ export default function NewSantri() {
         method: "POST",
         body: JSON.stringify(sendData),
       });
-      console.log(sendData, "data 68");
+      // console.log(sendData, "data 68");
       return response.json();
     };
     newsantri().then((data) => {
@@ -95,7 +93,7 @@ export default function NewSantri() {
             {/* <!-- Modal content --> */}
             <div className="relative bg-white rounded-lg border border-blue-400 shadow">
               {/* <!-- Modal header --> */}
-              <form onSubmit={sendFormData} >
+              <form autoComplete="off" onSubmit={sendFormData} >
                 <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
                     Add New Profil
@@ -117,11 +115,12 @@ export default function NewSantri() {
                       Your Name
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="text"
                       id="nama"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
                       placeholder="nama"
+                      autoComplete="off"
                       required
                     />
                   </div>
@@ -130,7 +129,7 @@ export default function NewSantri() {
                       NIM
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="number"
                       id="nim"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
@@ -145,7 +144,7 @@ export default function NewSantri() {
                       Kelas
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="number"
                       id="id_kelas"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
@@ -157,7 +156,7 @@ export default function NewSantri() {
                       No Tabungan
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="text"
                       id="no_tabungan"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
@@ -170,7 +169,7 @@ export default function NewSantri() {
                       Nama Orangtua
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="text"
                       id="orangtua"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
@@ -183,7 +182,7 @@ export default function NewSantri() {
                       Alamat
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="text"
                       id="alamat"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
@@ -196,7 +195,7 @@ export default function NewSantri() {
                       ID Card
                     </label>
                     <input
-                      onChange={inputForm}
+                      onChange={onInput}
                       type="number"
                       id="id_card"
                       className="shadow-sm bg-gray-50 border border-blue-400 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2"
@@ -228,7 +227,7 @@ export default function NewSantri() {
                   </button>
                   <button
                     type="button"
-                    onClick={inputForm}
+                    onClick={onInput}
                     className="mt-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-base px-5 py-2.5 text-center"
                   >
                     Test Show State from Input field

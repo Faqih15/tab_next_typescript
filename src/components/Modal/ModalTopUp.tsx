@@ -42,7 +42,7 @@ export default function AddSaldo({item, onClose} :any) {
               </div>
               {/* <!-- Modal body --> */}
               {!!item ? (
-                <form>
+                <form autoComplete="off">
                   <div className="max-w-sm mx-auto py-5">
                     <div className="mb-3">
                       <label className="block text-base font-medium text-gray-900">
