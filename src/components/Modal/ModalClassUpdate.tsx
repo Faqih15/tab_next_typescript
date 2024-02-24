@@ -36,7 +36,7 @@ export default function UpdateClass({dataUpClass, onClose} :any) {
                 </div>
                 {/* <!-- Modal body --> */}
                 {!!dataUpClass ? (
-                  <form>
+                  <form autoComplete="off">
                     <div className="max-w-sm mx-auto py-5">
                       <div className="mb-4">
                         <label className="block mb-1 text-sm font-medium text-gray-900">

@@ -22,7 +22,7 @@ export default function TabelKelas() {
 
   useEffect(() => {
     getClass();
-  }, []);
+  }, [dataClass]);
   // console.log('dataClass 37', dataClass)  
 
   return (

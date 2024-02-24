@@ -32,7 +32,6 @@ export default function TableSantri() {
   const [modal, setModal]: any = useState(null);
   const [modalDelete, setDelete]: any = useState(null);
   const [santri, setSantri] = useState([]);
-  const [data, setData] = useState([]);
 
   const getAllSantri = async () => {
     const res = await fetch("http://localhost:5000/santri");
@@ -44,7 +43,7 @@ export default function TableSantri() {
   useEffect(() => {
     getAllSantri();
     console.log('useEffect TabelSantri.tsx')
-  }, [modalDelete]);
+  }, []);
   // console.log('santri', santri)
   // console.log('data data', data)
   return (
