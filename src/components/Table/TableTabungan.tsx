@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { KeySantri } from "@/types/santri";
+import { Santri } from "@/types/santri";
 import ModalTopUp from "@/components/Modal/ModalTopUp";
 
 interface IUser {
@@ -23,16 +23,16 @@ export default function TabelTab() {
   const [modal, setModal]: any = useState(null);
   const [dataTabungan, setDataTabungan] = useState([]);
 
-  // console.log('check 1', dataTabungan)
+  console.log('check 1', dataTabungan)
   // console.log('check 2', dataTabungan?.length)
 
   
+  const getTabSantri = async () => {
+    const res = await fetch("http://localhost:5000/santri");
+    const data = await res.json();
+    if (data?.length) setDataTabungan(data);
+  }
   useEffect(() => {
-    const getTabSantri = async () => {
-      const res = await fetch("http://localhost:5000/santri");
-      const data = await res.json();
-      if (data?.length) setDataTabungan(data);
-    }
     getTabSantri();
     // (async () => {
     //   const res = await fetch("http://localhost:5000/santri");
@@ -68,7 +68,7 @@ export default function TabelTab() {
           </thead>
           <tbody className="text-base capitalize text-gray-800">
             {!!dataTabungan?.length &&
-              dataTabungan.map((tabItem: KeySantri, index: number) => {
+              dataTabungan.map((tabItem: Santri, index: number) => {
                 return (
                   <tr key={index}>
                     <td className="px-5">{tabItem.nama}</td>

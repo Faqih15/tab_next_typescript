@@ -1,22 +1,12 @@
 "use client";
+import { Santri } from "@/types/santri";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
-
-type KeyTabSantri = {
-  nama: string;
-  nim: number;
-  id_kelas: number;
-  no_tabungan: string;
-  orangtua: string;
-  alamat: string;
-  id_card: number;
-  saldo: number;
-};
 
 export default function NewSantri() {
   // const [first, setfirst] = useState<string>();
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [dataInput, setDataInput] = useState<KeyTabSantri>({
+  const [dataInput, setDataInput] = useState<Santri>({
     nama: '',
     nim: 0,
     id_kelas: 0,
@@ -33,13 +23,12 @@ export default function NewSantri() {
     } else {
       setOpen(false);
     }
-    e.target.reset();
+    // e.target.reset();
   };
 
   const onInput = (e: any) => {
     setDataInput({ ...dataInput, [e.target.id]: e.target.value });
     console.log("dataInput", dataInput);
-    // console.log("e.target.id", e.target.id);
   };
 
   const sendFormData = (e: any) => {

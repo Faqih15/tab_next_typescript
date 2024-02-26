@@ -1,6 +1,7 @@
 import TableSantri from '../../components/Table/TableSantri';
 import AsideAndTop from '../../components/Layouts/Aside';
 import NewSantri from '../../components/Modal/Santri/ModalSantriNew';
+import TestAppModal from '@/components/Modal/Test';
 
 export default function Dashboard() {
   return(
@@ -11,6 +12,7 @@ export default function Dashboard() {
         <NewSantri /> 
         {/* show modal form new santri */}
         <TableSantri />
+        <TestAppModal />
       </AsideAndTop>
     </div>
   )
