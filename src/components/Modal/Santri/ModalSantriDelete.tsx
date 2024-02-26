@@ -37,7 +37,7 @@ type KeySantri = {
 
 export default function DeleteSantri({paramDelete, onClose} :any) {
   // console.log('ModalDelete item', paramDelete) // const id = paramDelete.id;
-  const handleDelete = async (e) => {
+  const handleDelete = async (e: any) => {
     e.preventDefault();
     const id1 = paramDelete.id;
     try {

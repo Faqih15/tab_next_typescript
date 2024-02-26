@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
-type KeySantri = {
+type KeyEditSantri = {
   nama: string;
   nim: number;
   id_kelas: number;
@@ -11,9 +11,21 @@ type KeySantri = {
   alamat: string;
   id_card: number;
   saldo: number;
-  id: string;
 };
 export default function UpdateSantri({paramUpdate, onClose}: any) {
+  const [dataEdit, setDataEdit] = useState<KeyEditSantri>({
+    nama: '',
+    nim: 0,
+    id_kelas: 0,
+    no_tabungan: '',
+    orangtua: '',
+    alamat: '',
+    id_card: 0,
+    saldo: 0,
+  });
+
+  
+
   return (
     <section>
       {/* <!-- Main modal --> */}

@@ -1,5 +1,5 @@
 "use client";
-import { SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import { MdClose } from "react-icons/md";
 
 type KeyTabSantri = {

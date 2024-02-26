@@ -29,7 +29,7 @@ export default function TableSantri() {
     },
   ];
 
-  const [modal, setModal]: any = useState(null);
+  const [modalEdit, setEdit]: any = useState(null);
   const [modalDelete, setDelete]: any = useState(null);
   const [santri, setSantri] = useState([]);
 
@@ -79,7 +79,7 @@ export default function TableSantri() {
                     <button
                       type="button"
                       className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-                      onClick={() => { setModal(santri) }}
+                      onClick={() => { setEdit(santri) }}
                     >
                       Update
                     </button>
@@ -102,7 +102,7 @@ export default function TableSantri() {
           </tbody>
         </table>
       </div>
-      {!!modal && <UpdateSantri paramUpdate={modal} onClose={()=>setModal(null)}/>}
+      {!!modalEdit && <UpdateSantri paramUpdate={modalEdit} onClose={()=>setEdit(null)}/>}
       {!!modalDelete && <DeleteSantri paramDelete={modalDelete} onClose={()=>setDelete(null)}/>}
     </section>
   );
