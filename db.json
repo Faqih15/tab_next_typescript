@@ -7,7 +7,7 @@
       "id_kelas": 1,
       "alamat": "Banyuwangi",
       "id_card": 3300133001,
-      "saldo": 0,
+      "saldo": "40000",
       "no_tabungan": "ST-02-110-01",
       "id": "5e9c"
     },
@@ -109,6 +109,10 @@
       "saldo": 0,
       "no_tabungan": "ST-02-173-03",
       "id": "d522"
+    },
+    {
+      "id": "841a",
+      "saldo": 0
     }
   ],
   "listclass": [

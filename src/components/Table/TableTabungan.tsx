@@ -23,7 +23,7 @@ export default function TabelTab() {
   const [modal, setModal]: any = useState(null);
   const [dataTabungan, setDataTabungan] = useState([]);
 
-  console.log('check 1', dataTabungan)
+  // console.log('check 1', dataTabungan)
   // console.log('check 2', dataTabungan?.length)
 
   
