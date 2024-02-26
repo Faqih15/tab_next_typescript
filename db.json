@@ -7,7 +7,7 @@
       "id_kelas": 1,
       "alamat": "Banyuwangi",
       "id_card": 3300133001,
-      "saldo": "40000",
+      "saldo": 66666,
       "no_tabungan": "ST-02-110-01",
       "id": "5e9c"
     },
@@ -18,7 +18,7 @@
       "id_kelas": 2,
       "alamat": "Cirebon",
       "id_card": 3300233002,
-      "saldo": 0,
+      "saldo": 88888,
       "no_tabungan": "ST-02-110-02",
       "id": "e792"
     },
@@ -29,7 +29,7 @@
       "id_kelas": 1,
       "alamat": "Bandung",
       "id_card": 3300333003,
-      "saldo": 0,
+      "saldo": 12345,
       "no_tabungan": "ST-02-109-01",
       "id": "f08e"
     },
@@ -111,7 +111,14 @@
       "id": "d522"
     },
     {
-      "id": "841a",
+      "id": "f8aa",
+      "nama": "mujahidf aqih",
+      "nim": "43400",
+      "id_kelas": "81",
+      "no_tabungan": "Culpa assumenda ani",
+      "orangtua": "Vel eum at aut possi",
+      "alamat": "Nesciunt nihil proi",
+      "id_card": "49",
       "saldo": 0
     }
   ],

@@ -1,9 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 
 type KeySaldo = {
-  saldoAwal: number;
   saldoInput: number;
 };
 type HasilTopUp = {
@@ -12,24 +11,19 @@ type HasilTopUp = {
 
 export default function AddSaldo({ item, onClose }: any) {
   // console.log("ModalTopUp item", item);
-  const [firstSaldo, setFirstSaldo] = useState<KeySaldo>({
-    saldoAwal: item.saldo,
-    saldoInput: 0,
-  });
+  const [getSaldo, setSaldo] = useState<KeySaldo>({saldoInput: 0});
   const [count, setCount] = React.useState<HasilTopUp>({ saldoAkhir: 0 });
-  const onInput = (e: any) => {
-    setFirstSaldo({ ...firstSaldo, [e.target.id]: e.target.value });
-    console.log("firstSaldo", firstSaldo);
-    // console.log("e.target.id", e.target.id);
-  };
+  // const onInput = (e: any) => {
+  //   setSaldo({ getSaldo, [e.target.id]: e.target.value });
+  //   console.log("getSaldo", getSaldo);
+  //   // console.log("e.target.id", e.target.id);
+  // };
 
   const sendTopUpValue = (e: any) => {
     e.preventDefault();
-    // const { saldoAwal, saldoInput } = firstSaldo;
+    // const { saldoAwal, saldoInput } = getSaldo;
     // setCount(Number(num1) + Number(num2));
-    console.log('count line 30', count);
-    const saldoAwal = firstSaldo.saldoAwal;
-    const saldoInput = firstSaldo.saldoInput;
+    console.log('count line 27', count);
     // const content = [{
     //   'score': saldoAwal,
     // }, {
@@ -43,13 +37,13 @@ export default function AddSaldo({ item, onClose }: any) {
       const idx = item.id;
       console.log("idx", idx);
       const sendData = {
-        saldo: item.saldo,
+        saldo: Number(item.saldo) + Number(getSaldo.saldoInput)
       };
+      console.log('sendData', sendData)
       const response = await fetch(`http://localhost:5000/santri/${idx}`, {
         method: "PATCH",
         body: JSON.stringify(sendData),
       });
-      // console.log(sendData, "data 68");
       return response.json();
     };
     topUpSaldo().then((data) => {
@@ -57,8 +51,12 @@ export default function AddSaldo({ item, onClose }: any) {
       // alert(data.message);
     });
     e.target.reset();
+    console.log('getSaldo', getSaldo);
     onClose();
   };
+  useEffect(() => {
+    console.log('getSaldo', getSaldo);
+  }, []);
   return (
     <section>
       <div
@@ -153,7 +151,7 @@ export default function AddSaldo({ item, onClose }: any) {
                       Uang masuk
                     </label>
                     <input
-                      onChange={onInput}
+                      onChange={e => setSaldo({saldoInput: Number(e.target.value)})}
                       type="number"
                       id="saldo"
                       defaultValue=""

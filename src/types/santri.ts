@@ -1,5 +1,5 @@
 
-export type KeySantri = {
+export type Santri = {
   nama: string;
   nim: number;
   orangtua: string;
@@ -7,6 +7,6 @@ export type KeySantri = {
   alamat: string;
   id_card: number;
   saldo: number;
-  id: string;
+  id?: string;
   no_tabungan: string;
 };
