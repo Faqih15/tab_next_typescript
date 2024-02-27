@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
+import { useQueryClient } from "@tanstack/react-query";
 
 type KeySaldo = {
   saldoInput: number;
@@ -10,6 +11,8 @@ type HasilTopUp = {
 };
 
 export default function AddSaldo({ item, onClose }: any) {
+  const queryClient = useQueryClient();
+
   // console.log("ModalTopUp item", item);
   const [getSaldo, setSaldo] = useState<KeySaldo>({saldoInput: 0});
   const [count, setCount] = React.useState<HasilTopUp>({ saldoAkhir: 0 });
@@ -19,23 +22,11 @@ export default function AddSaldo({ item, onClose }: any) {
   //   // console.log("e.target.id", e.target.id);
   // };
 
-  const sendTopUpValue = (e: any) => {
+  const sendTopUpValue = async (e: any) => {
     e.preventDefault();
-    // const { saldoAwal, saldoInput } = getSaldo;
-    // setCount(Number(num1) + Number(num2));
-    console.log('count line 27', count);
-    // const content = [{
-    //   'score': saldoAwal,
-    // }, {
-    //   'score': saldoInput,
-    // }];
-    // const sum = content.reduce(function(prev, current) {
-    //   return prev + +current.score
-    // }, 0);
-    // setCount(sum)
     const topUpSaldo = async () => {
       const idx = item.id;
-      console.log("idx", idx);
+      // console.log("idx", idx);
       const sendData = {
         saldo: Number(item.saldo) + Number(getSaldo.saldoInput)
       };
@@ -48,15 +39,14 @@ export default function AddSaldo({ item, onClose }: any) {
     };
     topUpSaldo().then((data) => {
       console.log(data, "data.message");
-      // alert(data.message);
     });
     e.target.reset();
-    console.log('getSaldo', getSaldo);
+    await queryClient.invalidateQueries({
+      queryKey: ["tabungan"],
+    });
     onClose();
   };
-  useEffect(() => {
-    console.log('getSaldo', getSaldo);
-  }, []);
+
   return (
     <section>
       <div

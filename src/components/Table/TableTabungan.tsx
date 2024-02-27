@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Santri } from "@/types/santri";
+import { useState } from "react";
+import { Santri, TestDummyData } from "@/types/santri";
 import ModalTopUp from "@/components/Modal/ModalTopUp";
+import { useQuery } from "@tanstack/react-query";
 
 interface IUser {
   nama: string;
@@ -21,36 +22,40 @@ export default function TabelTab() {
   ];
   
   const [modal, setModal]: any = useState(null);
-  const [dataTabungan, setDataTabungan] = useState([]);
+  const { status, data: dataTabungan, error, isFetching, } = useQuery({
+    queryKey: ['dataTabungan'],
+    queryFn: async () => {
+      try {
+        await fetch("http://localhost:5000/santri").then(res => res.json())
+      } catch {
+        console.log("error : ?????")
+      }
+    },
+    initialData: initialTodos,
+  });
+  console.log("isFetching", isFetching)
+  console.log("error", error)
+  console.log("status", status)
+  console.log("dataTabungan", dataTabungan)
+  if (isFetching) return 'isFetching...'
+  if (error) return 'An error has occurred: ' + error.message
+  if (!status) return 'Loading...'
+  // if (dataTabungan) return 'dataTabungan...'
 
-  console.log('check 1', dataTabungan)
-  // console.log('check 2', dataTabungan?.length)
-
-  
-  const getTabSantri = async () => {
-    const res = await fetch("http://localhost:5000/santri");
-    const data = await res.json();
-    if (data?.length) setDataTabungan(data);
-  }
-  useEffect(() => {
-    getTabSantri();
-    // (async () => {
-    //   const res = await fetch("http://localhost:5000/santri");
-    //   const data = await res.json();
-    //   if (data?.length) setDataTabungan(data);
-    // })()
-  }, []);
-
-  // useEffect(() => {
-  //   console.log('modal 1', modal)
-  // }, [modal])
-  
-  // const dataTest = useMemo(() => {
-  //   return modal || []
-  // }, [modal])
+  // if (error) return 'An error has occurred: ' + error.message
+  const dummyData = TestDummyData
+  console.log('dummyData', dummyData)
 
   return (
     <section className="">
+      <div>
+        {/* <h1>{data.name}</h1> */}
+        {/* <p>{data.description}</p>
+        <strong>👀 {data.subscribers_count}</strong>{' '}
+        <strong>✨ {data.stargazers_count}</strong>{' '}
+        <strong>🍴 {data.forks_count}</strong>
+        <div>{isFetching ? 'Updating...' : ''}</div> */}
+      </div>
       <div className="relative overflow-x-auto">
         <table className="w-full text-left rtl:text-right">
           <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100">
@@ -66,7 +71,7 @@ export default function TabelTab() {
               );
             })}
           </thead>
-          <tbody className="text-base capitalize text-gray-800">
+          {/* <tbody className="text-base capitalize text-gray-800">
             {!!dataTabungan?.length &&
               dataTabungan.map((tabItem: Santri, index: number) => {
                 return (
@@ -89,10 +94,18 @@ export default function TabelTab() {
                   </tr>
                 );
               })}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
       {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)}/>}
     </section>
   );
 }
+
+// useEffect(() => {
+//   console.log('modal 1', modal)
+// }, [modal])
+
+// const dataTest = useMemo(() => {
+//   return modal || []
+// }, [modal])
