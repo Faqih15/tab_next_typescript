@@ -3,83 +3,39 @@ import { useState } from "react";
 // import { Santri, TestDummyData } from "@/types/santri";
 import ModalTopUp from "@/components/Modal/ModalTopUp";
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import { Santri } from "@/types/santri";
 
-interface IUser {
-  nama: string;
-  nim: string;
-  no_tabungan: string;
-  saldo: string;
-}
-export default function TabelTab({urlPage}: any) {
-  const headClass = [
-    {
-      nama: "nama",
-      nim: "nim",
-      no_tabungan: "no tabungan",
-      saldo: "saldo",
-    },
-  ];
+export default function TabelTab() {
   const QClient = new QueryClient()
-
   const [modal, setModal]: any = useState(null);
-  // const [stateTabungan, setdataTabungan]: any = useState(null);
 
-  const getTableSantri = async (): Promise<void> => {
+  const getTableSantri = async (): Promise<Santri[]> => {
     const URL = "http://localhost:5000/santri";
     const response = await fetch(URL);
-    if (response) {
-      console.log("responese ada");
-    } else {
-      console.log("response ga ada")
-    }
-    const hasil = await response.json()
-    // setdataTabungan(hasil)
+    const hasil = await response.json();
     return hasil;
   }
-  
-  const { status, data: dataTabungan, error, isFetching, isError, isLoading, isSuccess } = useQuery({
+  const { data: dataTabungan, isLoading } = useQuery({
     queryFn: () => getTableSantri(),
     queryKey: ['dataTabungan'],
   });
-  // console.log("isFetching", isFetching)
-  // console.log("error", error)
-  // console.log("status", status)
-  // console.log("dataTabungan line 47", dataTabungan)
-  // console.log("dummy line 48", dataTabungan)
-  // console.log("isError", isError)
-  // console.log("isLoading", isLoading)
-  // console.log("isSuccess", isSuccess)
-  // if (isFetching) return 'isFetching...'
-  // if (error) return 'An error has occurred: ' + error.message
-  // if (!status) return 'Loading...'
-  // if (dataTabungan) return 'dataTabungan...'
-  // if (error) return 'An error has occurred: ' + error.message
-
+  if (isLoading) {
+    return <div className='text-red-500 font-semibold'>Loading data ....</div>
+  }
+  
   return (
     <section className="">
-      <div>
-        {/* <h1>{data.name}</h1> */}
-        {/* <p>{data.description}</p>
-        <strong>👀 {data.subscribers_count}</strong>{' '}
-        <strong>✨ {data.stargazers_count}</strong>{' '}
-        <strong>🍴 {data.forks_count}</strong>
-        <div>{isFetching ? 'Updating...' : ''}</div> */}
-      </div>
       <QueryClientProvider client={QClient}>
         <div className="relative overflow-x-auto">
           <table className="w-full text-left rtl:text-right">
             <thead className="text-lg font-semibold text-gray-700 uppercase bg-gray-100">
-              {headClass.map((itemHead, index) => {
-                return (
-                  <tr key={index} className="">
-                    <td className="px-6 py-2 text-center">{itemHead.nama}</td>
-                    <td className="px-6 py-2">{itemHead.nim}</td>
-                    <td className="px-6 py-2 text-center">{itemHead.no_tabungan}</td>
-                    <td className="px-6 py-2 text-center">{itemHead.saldo}</td>
-                    <td className="px-6 py-2 flex justify-start">Action</td>
-                  </tr>
-                );
-              })}
+              <tr className="">
+                <td className="px-6 py-2 text-center">nama</td>
+                <td className="px-6 py-2">nim</td>
+                <td className="px-6 py-2 text-center">no tabungan</td>
+                <td className="px-6 py-2 text-center">saldo</td>
+                <td className="px-6 py-2 flex justify-start">Action</td>
+              </tr>
             </thead>
             <tbody className="text-base capitalize text-gray-800">
               {!!dataTabungan?.length &&

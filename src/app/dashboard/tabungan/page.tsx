@@ -9,9 +9,9 @@ export default function TabPage() {
   return (
     <div>
       <AsideAndTop>
-        <h1 className='text-red-500 font-semibold'>/dashboard/tabungan</h1>
+        {/* <h1 className='text-red-500 font-semibold'>/dashboard/tabungan</h1> */}
         <QueryClientProvider client={QClient}>
-          <TabelTab urlPage={urlPage} />
+          <TabelTab />
         </QueryClientProvider>
       </AsideAndTop>
     </div>
