@@ -5,13 +5,13 @@ import TabelTab from '@/components/Table/TableTabungan';
 
 export default function TabPage() {
   const QClient = new QueryClient()
-
+  const urlPage = "http://localhost:5000/santri"
   return (
     <div>
       <AsideAndTop>
         <h1 className='text-red-500 font-semibold'>/dashboard/tabungan</h1>
         <QueryClientProvider client={QClient}>
-        <TabelTab />
+          <TabelTab urlPage={urlPage} />
         </QueryClientProvider>
       </AsideAndTop>
     </div>

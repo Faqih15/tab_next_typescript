@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
-import { useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type KeySaldo = {
   saldoInput: number;
@@ -41,11 +41,15 @@ export default function AddSaldo({ item, onClose }: any) {
       console.log(data, "data.message");
     });
     e.target.reset();
-    await queryClient.invalidateQueries({
-      queryKey: ["tabungan"],
-    });
+    // await queryClient.invalidateQueries({
+    //   queryKey: ["tabungan"],
+    // });
     onClose();
   };
+
+  const { mutateAsync } = useMutation({
+    // queryFn: () => getTableSantri(),
+  });
 
   return (
     <section>
