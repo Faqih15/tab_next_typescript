@@ -7,7 +7,7 @@
       "id_kelas": 1,
       "alamat": "Banyuwangi",
       "id_card": 3300133001,
-      "saldo": 66666,
+      "saldo": 1212,
       "no_tabungan": "ST-02-110-01",
       "id": "5e9c"
     },
@@ -18,7 +18,7 @@
       "id_kelas": 2,
       "alamat": "Cirebon",
       "id_card": 3300233002,
-      "saldo": 88888,
+      "saldo": 0,
       "no_tabungan": "ST-02-110-02",
       "id": "e792"
     },
@@ -29,7 +29,7 @@
       "id_kelas": 1,
       "alamat": "Bandung",
       "id_card": 3300333003,
-      "saldo": 12345,
+      "saldo": 0,
       "no_tabungan": "ST-02-109-01",
       "id": "f08e"
     },
