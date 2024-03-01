@@ -24,8 +24,6 @@ export default function UpdateSantri({paramUpdate, onClose}: any) {
     saldo: 0,
   });
 
-  
-
   return (
     <section>
       {/* <!-- Main modal --> */}

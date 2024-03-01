@@ -3,11 +3,15 @@ import { useState } from "react";
 // import { Santri, TestDummyData } from "@/types/santri";
 import ModalTopUp from "@/components/Modal/ModalTopUp";
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
-import { Santri } from "@/types/santri";
+import { Santri, KeySaldo } from "@/types/santri";
 
 export default function TabelTab() {
   const QClient = new QueryClient()
   const [modal, setModal]: any = useState(null);
+  const [getSaldo, setSaldo] = useState<KeySaldo>({saldoInput: 0});
+  // const onInput = (e: any) => {
+  //   setSaldo({ getSaldo, [e.target.id]: e.target.value });
+  // };
 
   const getTableSantri = async (): Promise<Santri[]> => {
     const URL = "http://localhost:5000/santri";
@@ -15,10 +19,36 @@ export default function TabelTab() {
     const hasil = await response.json();
     return hasil;
   }
-  const { data: dataTabungan, isLoading } = useQuery({
+  const { data: stateTab, isLoading } = useQuery({
     queryFn: () => getTableSantri(),
-    queryKey: ['dataTabungan'],
+    queryKey: ['stateTab'],
+    staleTime: Infinity,
   });
+  
+
+  const functionTopUp = async (e: any): Promise<KeySaldo> => {
+    e.preventDefault();
+    const topUpSaldo = async () => {
+      const idx = modal.id;
+      // console.log("idx", idx);
+      const sendData = {
+        saldo: Number(modal.saldo) + Number(getSaldo.saldoInput)
+      };
+      console.log('sendData', sendData)
+      const response = await fetch(`http://localhost:5000/santri/${idx}`, {
+        method: "PATCH",
+        body: JSON.stringify(sendData),
+      });
+      return response.json();
+    };
+    topUpSaldo().then((data) => {
+      console.log(data, "data.message");
+    });
+    e.target.reset();
+    // await queryClient.invalidateQueries({ queryKey: ["tabungan"] });
+    setModal(null);
+  };
+
   if (isLoading) {
     return <div className='text-red-500 font-semibold'>Loading data ....</div>
   }
@@ -38,8 +68,8 @@ export default function TabelTab() {
               </tr>
             </thead>
             <tbody className="text-base capitalize text-gray-800">
-              {!!dataTabungan?.length &&
-                dataTabungan.map((tabItem: Santri, index: number) => {
+              {!!stateTab?.length &&
+                stateTab.map((tabItem: Santri, index: number) => {
                   return (
                     <tr key={index}>
                       <td className="px-5">{tabItem.nama}</td>
@@ -63,7 +93,7 @@ export default function TabelTab() {
             </tbody>
           </table>
         </div>
-        {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)}/>}
+        {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)} topUp={functionTopUp} setSaldo={setSaldo} />}
       </QueryClientProvider>
     </section>
   );

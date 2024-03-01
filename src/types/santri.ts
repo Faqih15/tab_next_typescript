@@ -11,6 +11,10 @@ export type Santri = {
   no_tabungan: string;
 };
 
+export type KeySaldo = {
+  saldoInput: number;
+};
+
 export const TestDummyData = [
   {
     nama: "Json Syafii Maarif",
