@@ -10,57 +10,22 @@ type HasilTopUp = {
   saldoAkhir: number;
 };
 
-export default function AddSaldo({ item, onClose }: any) {
+export default function AddSaldo({ item, onClose, topUp, setSaldo }: any) {
   const queryClient = useQueryClient();
 
-  // console.log("ModalTopUp item", item);
-  const [getSaldo, setSaldo] = useState<KeySaldo>({saldoInput: 0});
-  const [count, setCount] = React.useState<HasilTopUp>({ saldoAkhir: 0 });
-  // const onInput = (e: any) => {
-  //   setSaldo({ getSaldo, [e.target.id]: e.target.value });
-  //   console.log("getSaldo", getSaldo);
-  //   // console.log("e.target.id", e.target.id);
-  // };
-
-  const sendTopUpValue = async (e: any) => {
-    e.preventDefault();
-    const topUpSaldo = async () => {
-      const idx = item.id;
-      // console.log("idx", idx);
-      const sendData = {
-        saldo: Number(item.saldo) + Number(getSaldo.saldoInput)
-      };
-      console.log('sendData', sendData)
-      const response = await fetch(`http://localhost:5000/santri/${idx}`, {
-        method: "PATCH",
-        body: JSON.stringify(sendData),
-      });
-      return response.json();
-    };
-    topUpSaldo().then((data) => {
-      console.log(data, "data.message");
-    });
-    e.target.reset();
-    // await queryClient.invalidateQueries({
-    //   queryKey: ["tabungan"],
-    // });
-    onClose();
-  };
-
-  const { mutateAsync } = useMutation({
-    // queryFn: () => getTableSantri(),
+  const { mutateAsync: topUpMutation } = useMutation({
+    mutationFn: topUp,
+    onSuccess: () => {
+      queryClient.invalidateQueries(['stateTab'])
+    }
   });
-
   return (
     <section>
       <div
-        id="default-modal"
         aria-hidden="true"
         className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full max-h-full bg-gray-700/75">
         <div className="relative p-4 w-full max-w-2xl max-h-full">
-          {/* <!-- Modal content --> */}
           <div className="relative bg-white rounded-lg border border-blue-400 shadow">
-            {/* <!-- Modal header --> */}
             <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
               <h3 className="text-xl font-semibold text-gray-900">
                 Top Up Tabungan of{" "}
@@ -77,9 +42,8 @@ export default function AddSaldo({ item, onClose }: any) {
                 <span className="sr-only">Close modal</span>
               </button>
             </div>
-            {/* <!-- Modal body --> */}
             {!!item ? (
-              <form autoComplete="off" onSubmit={sendTopUpValue}>
+              <form autoComplete="off" onSubmit={topUp}>
                 <div className="max-w-sm mx-auto py-5">
                   <div className="mb-3">
                     <label className="block text-base font-medium text-gray-900">
@@ -144,7 +108,7 @@ export default function AddSaldo({ item, onClose }: any) {
                     <label className="block text-base font-medium text-gray-900">
                       Uang masuk
                     </label>
-                    <input
+                    <input  
                       onChange={e => setSaldo({saldoInput: Number(e.target.value)})}
                       type="number"
                       id="saldo"
