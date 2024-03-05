@@ -1,5 +1,5 @@
 "use client";
-import { Santri } from "@/types/santri";
+import { Santri } from "@/types";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 

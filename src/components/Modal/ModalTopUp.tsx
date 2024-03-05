@@ -10,11 +10,11 @@ type HasilTopUp = {
   saldoAkhir: number;
 };
 
-export default function AddSaldo({ item, onClose, topUp, setSaldo }: any) {
+export default function AddSaldo({ item, onClose, topUpMutationFn, getSaldo, setSaldo, stateTab }: any) {
   const queryClient = useQueryClient();
-
-  const { mutateAsync: topUpMutation } = useMutation({
-    mutationFn: topUp,
+  const gSaldo = getSaldo;
+  const { mutateAsync: topUpMutationAsync } = useMutation({
+    mutationFn: topUpMutationFn, // Required for useMutation
     onSuccess: () => {
       queryClient.invalidateQueries(['stateTab'])
     }
@@ -43,7 +43,17 @@ export default function AddSaldo({ item, onClose, topUp, setSaldo }: any) {
               </button>
             </div>
             {!!item ? (
-              <form autoComplete="off" onSubmit={topUp}>
+              <form 
+                autoComplete="off" 
+                onSubmit={async () => {
+                  try {
+                    await topUpMutationAsync(gSaldo)
+                    setSaldo("")
+                  } catch (error) {
+                    console.log('error form submit', error)
+                  } 
+                }
+                }>
                 <div className="max-w-sm mx-auto py-5">
                   <div className="mb-3">
                     <label className="block text-base font-medium text-gray-900">
