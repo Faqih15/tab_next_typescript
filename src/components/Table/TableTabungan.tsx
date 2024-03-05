@@ -3,7 +3,8 @@ import { useState } from "react";
 // import { Santri, TestDummyData } from "@/types/santri";
 import ModalTopUp from "@/components/Modal/ModalTopUp";
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
-import { Santri, KeySaldo } from "@/types/santri";
+import { Santri, KeySaldo } from "@/types";
+import { getAllSantri } from "@/services/santri";
 
 export default function TabelTab() {
   const QClient = new QueryClient()
@@ -13,18 +14,20 @@ export default function TabelTab() {
   //   setSaldo({ getSaldo, [e.target.id]: e.target.value });
   // };
 
-  const getTableSantri = async (): Promise<Santri[]> => {
-    const URL = "http://localhost:5000/santri";
-    const response = await fetch(URL);
-    const hasil = await response.json();
-    return hasil;
-  }
+  // const getAllSantri = async (): Promise<Santri[]> => {
+  //   const URL = "http://localhost:5000/santri";
+  //   const response = await fetch(URL);
+  //   const hasil = await response.json();
+  //   return hasil;
+  // }
+  // getAllSantri
+  
   const { data: stateTab, isLoading } = useQuery({
-    queryFn: () => getTableSantri(),
-    queryKey: ['stateTab'],
+    queryFn: () => getAllSantri(), // Required for useQuery
+    queryKey: ['stateTab'], // Required for useQuery
     staleTime: Infinity,
   });
-  
+  console.log('stateTab', stateTab)
 
   const functionTopUp = async (e: any): Promise<KeySaldo> => {
     e.preventDefault();
@@ -93,7 +96,7 @@ export default function TabelTab() {
             </tbody>
           </table>
         </div>
-        {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)} topUp={functionTopUp} setSaldo={setSaldo} />}
+        {!!modal && <ModalTopUp item={modal} onClose={()=>setModal(null)} topUpMutationFn={functionTopUp} getSaldo={getSaldo} setSaldo={setSaldo} stateTab={stateTab} />}
       </QueryClientProvider>
     </section>
   );

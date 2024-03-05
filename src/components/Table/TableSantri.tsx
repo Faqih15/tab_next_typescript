@@ -1,7 +1,9 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import UpdateSantri from '../Modal/Santri/ModalSantriUpd';
 import DeleteSantri from '../Modal/Santri/ModalSantriDelete';
+import { useQuery } from "@tanstack/react-query";
+import { getAllSantri } from "@/services/santri";
 
 type KeyTabSantri = {
   nama: string;
@@ -29,21 +31,34 @@ export default function TableSantri() {
     },
   ];
 
+  // const QClient = new QueryClient()
   const [modalEdit, setEdit]: any = useState(null);
   const [modalDelete, setDelete]: any = useState(null);
-  const [santri, setSantri] = useState([]);
+  // const [santri, setSantri] = useState([]);
 
-  const getAllSantri = async () => {
-    const res = await fetch("http://localhost:5000/santri");
-    // console.log("res", res)
-    const data = await res.json();
-    if (data?.length) {setSantri(data)};
-    // if (res) {setSantri(res)};
+  const { data: stateTab, isLoading, isError } = useQuery({
+    queryFn: () => getAllSantri(), // Required for useQuery
+    queryKey: ['stateTab'], // Required for useQuery
+    // staleTime: Infinity,
+  });
+  console.log('stateTab', stateTab)
+  if (isLoading) {
+    console.log("Loading data....")
+    return <div className='text-red-500 font-semibold'>Loading data ....</div>
   }
-  useEffect(() => {
-    getAllSantri();
-    console.log('useEffect TabelSantri.tsx')
-  }, []);
+  if (isError) {
+    console.log("Error fetching data....")
+    return <div className='text-red-500 font-semibold'>Error fetching data ....</div>
+  }
+  // const getAllSantri = async () => {
+  //   const res = await fetch("http://localhost:5000/santri");
+  //   const data = await res.json();
+  //   if (data?.length) {setSantri(data)};
+  // }
+  // useEffect(() => {
+  //   getAllSantri();
+  //   console.log('useEffect TabelSantri.tsx')
+  // }, [modalDelete]);
   // console.log('santri', santri)
   // console.log('data data', data)
   return (
@@ -68,38 +83,38 @@ export default function TableSantri() {
               );
             })}
           </thead>
-          <tbody className="text-base capitalize text-gray-800">
-            {santri.map((santri: KeyTabSantri, index: number) => {
-              return (
-                <tr key={index} className="">
-                  {/* key must change to id data */}
-                  <td className="px-5">{santri.nama}</td>
-                  <td className="px-5">{santri.nim}</td>
-                  <td className="px-5 flex justify-start items-center gap-2">
-                    <button
-                      type="button"
-                      className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-                      onClick={() => { setEdit(santri) }}
-                    >
-                      Update
-                    </button>
-                    <button
-                      type="button"
-                      className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
-                      onClick={() => { setDelete(santri) }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                  <td className="px-5">{santri.id_kelas}</td>
-                  <td className="px-5">{santri.orangtua}</td>
-                  <td className="px-5">{santri.alamat}</td>
-                  <td className="px-5">{santri.id_card}</td>
-                  {/* <td className="px-5">{santri.saldo}</td> */}
-                </tr>
-              );
-            })}
-          </tbody>
+            <tbody className="text-base capitalize text-gray-800">
+              {stateTab.map((santri: KeyTabSantri, index: number) => {
+                return (
+                  <tr key={index} className="">
+                    {/* key must change to id data */}
+                    <td className="px-5">{santri.nama}</td>
+                    <td className="px-5">{santri.nim}</td>
+                    <td className="px-5 flex justify-start items-center gap-2">
+                      <button
+                        type="button"
+                        className="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                        onClick={() => { setEdit(santri) }}
+                      >
+                        Update
+                      </button>
+                      <button
+                        type="button"
+                        className="bg-red-500 hover:bg-red-600 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center"
+                        onClick={() => { setDelete(santri) }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                    <td className="px-5">{santri.id_kelas}</td>
+                    <td className="px-5">{santri.orangtua}</td>
+                    <td className="px-5">{santri.alamat}</td>
+                    <td className="px-5">{santri.id_card}</td>
+                    {/* <td className="px-5">{santri.saldo}</td> */}
+                  </tr>
+                );
+              })}
+            </tbody>
         </table>
       </div>
       {!!modalEdit && <UpdateSantri paramUpdate={modalEdit} onClose={()=>setEdit(null)}/>}
